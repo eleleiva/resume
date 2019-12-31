@@ -2,9 +2,9 @@
   display: grid;
   grid-area: story;
   grid-template-areas:
-    "skills"
-    "experience"
-    "studies";
+    'skills'
+    'experience'
+    'studies';
 }
 
 .personalInformation {

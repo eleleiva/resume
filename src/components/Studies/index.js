@@ -1,3 +1,3 @@
-import Studies from "./Studies";
+import Studies from './Studies';
 
 export default Studies;
