@@ -1,0 +1,54 @@
+.main {
+  display: grid;
+  grid-area: story;
+  grid-template-areas:
+    "skills"
+    "experience"
+    "studies";
+}
+
+.personalInformation {
+  grid-area: personal-information;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  height: 100vh;
+  padding: 10px;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .personalInformation {
+    position: relative;
+    height: 100%;
+    margin: auto;
+  }
+}
+
+.stickyNote {
+  padding: 2em;
+  margin-top: 2em;
+  margin-right: 2em;
+  margin-left: 2em;
+  border-radius: 3px;
+  box-shadow: 1px 1px 20px 1px #888;
+}
+
+.skills {
+  composes: stickyNote;
+  grid-area: skills;
+  background-color: #f3ffbd;
+}
+
+.experience {
+  composes: stickyNote;
+  grid-area: experience;
+  background-color: #b2dbbf;
+}
+
+.studies {
+  composes: stickyNote;
+  grid-area: studies;
+  background-color: #70c1b3;
+  margin-bottom: 2em;
+}
