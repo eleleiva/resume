@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import PersonalInformation from "../components/PersonalInformation";
-import Skills from "../components/Skills";
-import Experience from "../components/Experiences";
-import Studies from "../components/Studies";
-import MainLayout from "../layouts/MainLayout";
-import styles from "./MainPage.module.css";
+import PersonalInformation from '../components/PersonalInformation';
+import Skills from '../components/Skills';
+import Experience from '../components/Experiences';
+import Studies from '../components/Studies';
+import MainLayout from '../layouts/MainLayout';
+import styles from './MainPage.module.css';
 
 const MainPage = () => (
   <MainLayout>
