@@ -1,17 +1,18 @@
 import React from 'react';
 
 import Experience from './Experience';
+import styles from './Experiences.module.css';
 
 const experiences = [
   {
-    years: '2017-Present',
+    years: '2017 - Present',
     title: 'Developer',
     company: 'Loop Studio',
     description:
       "Work on many projects mainly developing on React and Ruby on Rails while trying to improve Loop Studio by contributing ideas, resources and helping make our processes better, other tasks I'm currently involved in are reviewing code from several projects and helping estimate projects.",
   },
   {
-    years: '2016-2017',
+    years: '2016 - 2017',
     title: 'Developer',
     company: 'Programa Uruguay',
     description:
@@ -22,7 +23,7 @@ const experiences = [
 const Experiences = () => (
   <>
     <h2>Experience</h2>
-    <section>
+    <section className={styles.experiences}>
       {experiences.map((experience) => (
         <Experience key={JSON.stringify(experience)} experience={experience} />
       ))}

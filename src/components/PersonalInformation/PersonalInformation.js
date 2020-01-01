@@ -14,13 +14,25 @@ const PersonalInformation = () => (
       </p>
     </article>
     <article className={styles.links}>
-      <a href="https://www.linkedin.com/in/luca-leiva-gonzalez-9002a9130/">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.linkedin.com/in/luca-leiva-gonzalez-9002a9130/"
+      >
         <FontAwesomeIcon icon={['fab', 'linkedin']} />
       </a>
-      <a href="https://github.com/lucaleivaloop">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/lucaleivaloop"
+      >
         <FontAwesomeIcon icon={['fab', 'github']} />
       </a>
-      <a href="https://github.com/eleleiva248/resume">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://github.com/eleleiva248/resume"
+      >
         <FontAwesomeIcon icon={'code'} />
       </a>
     </article>

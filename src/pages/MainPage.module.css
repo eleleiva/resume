@@ -1,6 +1,7 @@
 .main {
   display: grid;
   grid-area: story;
+  grid-template-columns: repeat(1, 1fr);
   grid-template-areas:
     'skills'
     'experience'

@@ -1,10 +1,11 @@
 import React from 'react';
 
 import Study from './Study';
+import styles from './Studies.module.css';
 
 const studies = [
   {
-    years: '2016-2018',
+    years: '2016 - 2018',
     title: 'System Analyst',
     institute: 'BIOS',
     description: 'Learn the fundamentals on software engineering.',
@@ -26,7 +27,7 @@ const studies = [
 const Studies = () => (
   <>
     <h2>Studies</h2>
-    <section>
+    <section className={styles.studies}>
       {studies.map((study) => (
         <Study key={JSON.stringify(study)} study={study} />
       ))}
