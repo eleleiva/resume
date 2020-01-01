@@ -1,9 +1,18 @@
 .name {
   font-size: xx-large;
+  margin-bottom: 0;
 }
 
 .location {
   font-size: large;
+  margin-top: 0;
+}
+
+.photo {
+  max-width: 100%;
+  max-height: 33vh;
+  mix-blend-mode: multiply;
+  border-bottom: solid 1px;
 }
 
 .links {
@@ -16,6 +25,15 @@
 
 .links a {
   margin: 0 1em;
+}
+
+.hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .links svg {
