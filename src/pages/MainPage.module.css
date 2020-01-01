@@ -12,7 +12,6 @@
   grid-area: personal-information;
   position: sticky;
   top: 0;
-  max-height: 100vh;
   height: 100vh;
   padding: 10px;
   text-align: center;
