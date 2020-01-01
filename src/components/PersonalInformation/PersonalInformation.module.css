@@ -7,10 +7,17 @@
 }
 
 .links {
-  margin: 1em;
+  margin: auto;
   font-size: x-large;
   justify-content: space-around;
   display: flex;
-  padding: 0 3em;
+  max-width: 0;
+}
+
+.links a {
+  margin: 0 1em;
+}
+
+.links svg {
   color: #1c2321;
 }

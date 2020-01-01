@@ -2,9 +2,9 @@ import React from 'react';
 
 const Experience = ({ experience }) => (
   <article key={experience.company}>
-    <h3>{experience.title}</h3>
-    <h4>{experience.company}</h4>
-    <h5>{experience.years}</h5>
+    <h4>
+      {experience.company} ({experience.years})
+    </h4>
     <p>{experience.description}</p>
   </article>
 );

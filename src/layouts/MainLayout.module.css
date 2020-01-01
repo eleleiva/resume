@@ -2,9 +2,6 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas: 'personal-information story story';
-  min-height: 100vh;
-  min-width: 100vw;
-  max-width: 100vw;
 }
 
 @media (min-width: 1400px) {
