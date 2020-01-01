@@ -15,3 +15,7 @@
   display: block;
   color: #eef1ef;
 }
+
+.skill span {
+  margin-right: 0.5em;
+}
