@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './PersonalInformation.module.css';
-import photo from './portrait.png';
+import photo from './portrait.jpg';
 
 const PersonalInformation = () => (
   <section>
@@ -21,7 +21,11 @@ const PersonalInformation = () => (
         rel="noopener noreferrer"
         href="https://www.linkedin.com/in/luca-leiva-gonzalez-9002a9130/"
       >
-        <FontAwesomeIcon icon={['fab', 'linkedin']} aria-hidden="true" />
+        <FontAwesomeIcon
+          className={styles.icon}
+          icon={['fab', 'linkedin']}
+          aria-hidden="true"
+        />
         <span className={styles.hidden}>LinkedIn Profile</span>
       </a>
       <a
@@ -29,7 +33,11 @@ const PersonalInformation = () => (
         rel="noopener noreferrer"
         href="https://github.com/lucaleivaloop"
       >
-        <FontAwesomeIcon icon={['fab', 'github']} aria-hidden="true" />
+        <FontAwesomeIcon
+          className={styles.icon}
+          icon={['fab', 'github']}
+          aria-hidden="true"
+        />
         <span className={styles.hidden}>GitHub Profile</span>
       </a>
       <a
@@ -37,7 +45,11 @@ const PersonalInformation = () => (
         rel="noopener noreferrer"
         href="https://github.com/eleleiva248/resume"
       >
-        <FontAwesomeIcon icon={'code'} aria-hidden="true" />
+        <FontAwesomeIcon
+          className={styles.icon}
+          icon={'code'}
+          aria-hidden="true"
+        />
         <span className={styles.hidden}>GitHub Repository</span>
       </a>
     </article>

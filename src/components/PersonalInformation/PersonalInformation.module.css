@@ -11,7 +11,6 @@
 .photo {
   max-width: 100%;
   max-height: 33vh;
-  mix-blend-mode: multiply;
   border-bottom: solid 1px;
 }
 
@@ -36,6 +35,15 @@
   width: 1px;
 }
 
-.links svg {
+.icon {
   color: #1c2321;
+  transform: perspective(1px) translateZ(0);
+  transition-duration: 0.3s;
+  transition-property: transform;
+}
+
+.icon:hover,
+.icon:focus,
+.icon:active {
+  transform: scale(1.2);
 }

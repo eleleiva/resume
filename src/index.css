@@ -5,8 +5,9 @@ body {
   font-family: 'Ubuntu', sans-serif, -apple-system, BlinkMacSystemFont,
     'Segoe UI', 'Roboto', 'Oxygen', 'Cantarell', 'Fira Sans', 'Droid Sans',
     'Helvetica Neue', sans-serif;
-  background-color: #eef1ef;
+  background-color: #eee;
   color: #1c2321;
+  text-shadow: 1px 1px 9px rgba(0, 0, 0, 0.2);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
