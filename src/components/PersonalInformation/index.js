@@ -1,3 +1,1 @@
-import PersonalInformation from './PersonalInformation';
-
-export default PersonalInformation;
+export { PersonalInformation } from './PersonalInformation';

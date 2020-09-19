@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Experience from './Experience';
+import { Experience } from './Experience';
+
 import styles from './Experiences.module.css';
 
 const experiences = [
@@ -20,15 +21,20 @@ const experiences = [
   },
 ];
 
-const Experiences = () => (
-  <>
-    <h2>Experience</h2>
-    <section className={styles.experiences}>
-      {experiences.map((experience) => (
-        <Experience key={JSON.stringify(experience)} experience={experience} />
-      ))}
-    </section>
-  </>
-);
+function Experiences() {
+  return (
+    <>
+      <h2>Experience</h2>
+      <section className={styles.experiences}>
+        {experiences.map((experience) => (
+          <Experience
+            key={JSON.stringify(experience)}
+            experience={experience}
+          />
+        ))}
+      </section>
+    </>
+  );
+}
 
-export default Experiences;
+export { Experiences };

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Skill from './Skill';
+import { Skill } from './Skill';
+
 import styles from './Skills.module.css';
 
 const skills = [
@@ -66,15 +67,17 @@ const skills = [
   },
 ];
 
-const Skills = () => (
-  <>
-    <h2>Skills</h2>
-    <ol className={styles.skills}>
-      {skills.map(({ skill, icon }) => (
-        <Skill key={skill} skill={skill} icon={icon} />
-      ))}
-    </ol>
-  </>
-);
+function Skills() {
+  return (
+    <>
+      <h2>Skills</h2>
+      <ol className={styles.skills}>
+        {skills.map(({ skill, icon }) => (
+          <Skill key={skill} skill={skill} icon={icon} />
+        ))}
+      </ol>
+    </>
+  );
+}
 
-export default Skills;
+export { Skills };
