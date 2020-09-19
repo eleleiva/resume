@@ -2,8 +2,8 @@ import React from 'react';
 
 import styles from './MainLayout.module.css';
 
-const MainLayout = ({ children }) => (
-  <div className={styles.container}>{children}</div>
-);
+function MainLayout({ children }) {
+  return <div className={styles.container}>{children}</div>;
+}
 
-export default MainLayout;
+export { MainLayout };

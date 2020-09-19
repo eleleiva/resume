@@ -1,6 +1,7 @@
 import React from 'react';
 
-import Study from './Study';
+import { Study } from './Study';
+
 import styles from './Studies.module.css';
 
 const studies = [
@@ -24,15 +25,17 @@ const studies = [
   },
 ];
 
-const Studies = () => (
-  <>
-    <h2>Studies</h2>
-    <section className={styles.studies}>
-      {studies.map((study) => (
-        <Study key={JSON.stringify(study)} study={study} />
-      ))}
-    </section>
-  </>
-);
+function Studies() {
+  return (
+    <>
+      <h2>Studies</h2>
+      <section className={styles.studies}>
+        {studies.map((study) => (
+          <Study key={JSON.stringify(study)} study={study} />
+        ))}
+      </section>
+    </>
+  );
+}
 
-export default Studies;
+export { Studies };
