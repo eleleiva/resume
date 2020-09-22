@@ -2,7 +2,7 @@ import React from 'react';
 
 function Experience({ experience }) {
   return (
-    <article key={experience.company}>
+    <article>
       <h3>
         {experience.company} ({experience.years})
       </h3>

@@ -27,10 +27,7 @@ function Experiences() {
       <h2>Experience</h2>
       <section className={styles.experiences}>
         {experiences.map((experience) => (
-          <Experience
-            key={JSON.stringify(experience)}
-            experience={experience}
-          />
+          <Experience key={experience.company} experience={experience} />
         ))}
       </section>
     </>

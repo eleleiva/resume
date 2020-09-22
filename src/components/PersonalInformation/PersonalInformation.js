@@ -7,14 +7,14 @@ import photo from './portrait.png';
 function PersonalInformation() {
   return (
     <section>
-      <article>
+      <article className={styles.article}>
         <h1 className={styles.name}>Luca Leiva</h1>
-        <img className={styles.photo} src={photo} alt="" />
-        <h2 className={styles.location}>Montevideo, Uruguay</h2>
-        <p>
+        <img alt="Luca" className={styles.photo} src={photo} />
+        <p className={styles.description}>
           Curious and detail-oriented full-stack developer who strives to
           deliver quality and customer satisfaction on every PR.
         </p>
+        <p>Montevideo, Uruguay</p>
       </article>
       <article className={styles.links}>
         <a
@@ -48,7 +48,7 @@ function PersonalInformation() {
         >
           <FontAwesomeIcon
             className={styles.icon}
-            icon={'code'}
+            icon="code"
             aria-hidden="true"
           />
           <span className={styles.hidden}>GitHub Repository</span>

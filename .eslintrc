@@ -1,0 +1,35 @@
+{
+  "env": {
+    "es2020": true,
+    "jest": true,
+    "browser": true,
+    "commonjs": true,
+    "serviceworker": true
+  },
+  "extends": [
+    "airbnb",
+    "react-app",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react",
+    "plugin:prettier/recommended",
+    "prettier/react"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  },
+  "parser": "babel-eslint",
+  "rules": {
+    "no-console": "warn",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/prefer-default-export": "off",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-filename-extension": "off"
+  }
+}
