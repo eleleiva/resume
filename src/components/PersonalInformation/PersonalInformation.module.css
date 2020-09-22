@@ -1,29 +1,6 @@
-.name {
-  font-size: xx-large;
-  margin-bottom: 0;
-}
-
-.location {
-  font-size: large;
-  margin-top: 0;
-}
-
-.photo {
-  max-width: 100%;
-  max-height: 33vh;
-  border-bottom: solid 1px;
-}
-
-.links {
-  margin: auto;
-  font-size: x-large;
-  justify-content: space-around;
-  display: flex;
-  max-width: 0;
-}
-
-.links a {
-  margin: 0 1em;
+.description {
+  margin: 1em auto;
+  max-width: 33vh;
 }
 
 .hidden {
@@ -46,4 +23,27 @@
 .icon:focus,
 .icon:active {
   transform: scale(1.2);
+}
+
+.links {
+  display: flex;
+  font-size: x-large;
+  justify-content: space-around;
+  margin: auto;
+  max-width: 0;
+}
+
+.links a {
+  margin: 0 1em;
+}
+
+.name {
+  font-size: xx-large;
+  margin-bottom: 0;
+}
+
+.photo {
+  border-bottom: solid 1px;
+  max-height: 33vh;
+  max-width: 100%;
 }

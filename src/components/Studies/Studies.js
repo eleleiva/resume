@@ -31,7 +31,7 @@ function Studies() {
       <h2>Studies</h2>
       <section className={styles.studies}>
         {studies.map((study) => (
-          <Study key={JSON.stringify(study)} study={study} />
+          <Study key={study.title} study={study} />
         ))}
       </section>
     </>

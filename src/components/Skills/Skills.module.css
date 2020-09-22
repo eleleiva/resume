@@ -1,21 +1,21 @@
-.skills {
-  display: flex;
-  flex: 1 1 auto;
-  flex-wrap: wrap;
-  padding: 0;
-  justify-content: center;
-}
-
 .skill {
   background-color: #247ba0;
   border-radius: 5px;
-  margin: 10px;
   box-shadow: 1px 1px 20px 1px rgba(0, 0, 0, 0.15);
-  padding: 0.5em;
-  display: block;
   color: #fff;
+  display: block;
+  margin: 10px;
+  padding: 0.5em;
 }
 
 .skill span {
   margin-right: 0.5em;
+}
+
+.skills {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
 }

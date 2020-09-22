@@ -1,58 +1,72 @@
 .main {
   display: grid;
-  grid-area: story;
-  grid-template-columns: repeat(1, 1fr);
   gap: 4em;
-  margin: 3em 2em;
+  grid-area: story;
   grid-template-areas:
     'skills'
     'experience'
     'studies';
+  grid-template-columns: repeat(1, 1fr);
+  margin: 3em 2em;
 }
 
 .personalInformation {
   grid-area: personal-information;
-  position: sticky;
-  top: 0;
   height: fit-content;
   padding: 10px;
+  position: sticky;
   text-align: center;
+  top: 0;
 }
 
 @media (max-width: 720px) {
   .personalInformation {
-    position: relative;
     margin: auto;
+    position: relative;
   }
 }
 
 .stickyNote {
-  padding: 2em;
   border-radius: 3px;
-  box-shadow: 12px 34px 54px -21px rgba(0, 0, 0, 0.5);
+  box-shadow: 30px 30px 15px -15px rgba(0, 0, 0, 0.1);
+  padding: 2em;
   top: 2em;
+}
+
+@media (max-width: 720px) {
+  .stickyNote p {
+    margin: 0em;
+  }
+
+  .stickyNote section {
+    margin: 0em;
+  }
 }
 
 .skills {
   composes: stickyNote;
+
+  background-color: #f3ffbd;
   grid-area: skills;
   transform: rotate(1.5deg);
-  background-color: #f3ffbd;
 }
+
 .skills::after {
   background: linear-gradient(rgba(255, 255, 255, 0.001), white);
 }
 
 .experience {
   composes: stickyNote;
-  grid-area: experience;
+
   background-color: #b2dbbf;
+  grid-area: experience;
   transform: rotate(-1deg);
 }
 
 .studies {
   composes: stickyNote;
-  grid-area: studies;
+
   background-color: #70c1b3;
+  grid-area: studies;
   transform: rotate(2deg);
 }
