@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { PersonalInformation } from 'components/PersonalInformation';
 import { Skills } from 'components/Skills';
 import { Experiences } from 'components/Experiences';

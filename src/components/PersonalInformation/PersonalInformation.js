@@ -1,4 +1,3 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './PersonalInformation.module.css';
@@ -32,7 +31,7 @@ function PersonalInformation() {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/lucaleivaloop"
+          href="https://github.com/eleleiva"
         >
           <FontAwesomeIcon
             className={styles.icon}
