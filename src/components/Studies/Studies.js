@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Study } from './Study';
 
 import styles from './Studies.module.css';

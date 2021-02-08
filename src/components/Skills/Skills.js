@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Skill } from './Skill';
 
 import styles from './Skills.module.css';

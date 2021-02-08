@@ -1,5 +1,3 @@
-import React from 'react';
-
 import styles from './MainLayout.module.css';
 
 function MainLayout({ children }) {

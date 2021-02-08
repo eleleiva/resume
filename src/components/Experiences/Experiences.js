@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Experience } from './Experience';
 
 import styles from './Experiences.module.css';
