@@ -14,7 +14,7 @@
     "plugin:jest-dom/recommended",
     "plugin:testing-library/react",
     "plugin:prettier/recommended",
-    "prettier/react"
+    "prettier"
   ],
   "settings": {
     "import/resolver": {
