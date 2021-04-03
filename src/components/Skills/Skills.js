@@ -8,16 +8,12 @@ const skills = [
     icon: ['fab', 'react'],
   },
   {
-    skill: 'Ruby on Rails',
-    icon: 'gem',
-  },
-  {
     skill: 'JavaScript',
     icon: ['fab', 'js-square'],
   },
   {
-    skill: 'Ruby',
-    icon: 'gem',
+    skill: 'Node.js',
+    icon: ['fab', 'node-js'],
   },
   {
     skill: 'Git',
@@ -26,6 +22,14 @@ const skills = [
   {
     skill: 'SQL',
     icon: 'database',
+  },
+  {
+    skill: 'Ruby on Rails',
+    icon: 'gem',
+  },
+  {
+    skill: 'Ruby',
+    icon: 'gem',
   },
   {
     skill: 'GraphQL',
@@ -42,10 +46,6 @@ const skills = [
   {
     skill: 'CSS',
     icon: ['fab', 'css3-alt'],
-  },
-  {
-    skill: 'Node.js',
-    icon: ['fab', 'node-js'],
   },
   {
     skill: 'PHP',

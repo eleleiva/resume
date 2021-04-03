@@ -43,7 +43,7 @@ function PersonalInformation() {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/eleleiva248/resume"
+          href="https://github.com/eleleiva/resume"
         >
           <FontAwesomeIcon
             className={styles.icon}
@@ -52,6 +52,10 @@ function PersonalInformation() {
           />
           <span className={styles.hidden}>GitHub Repository</span>
         </a>
+      </article>
+      <article>
+        <h2>Silly apps: </h2>
+        <a href="https://path-finder.lucaleiva.com">Path finder</a>
       </article>
     </section>
   );

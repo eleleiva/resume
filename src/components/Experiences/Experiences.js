@@ -4,11 +4,18 @@ import styles from './Experiences.module.css';
 
 const experiences = [
   {
-    years: '2017 - Present',
+    years: '2021 - Present',
     title: 'Developer',
-    company: 'Loop Studio',
+    company: 'Moove It',
     description:
-      "Work on many projects mainly developing on React and Ruby on Rails while trying to improve Loop Studio by contributing ideas, resources and helping make our processes better, other tasks I'm currently involved in are reviewing code from several projects and helping estimate projects.",
+      "Currently working as a Full Stack JS (React-Node) developer I just landed on my first project while getting my feet wet on the warming culture of Moove it, let's see what the future holds us.",
+  },
+  {
+    years: '2017 - 2021',
+    title: 'Developer',
+    company: 'LoopStudio',
+    description:
+      'Worked on many projects mainly developing on React and Ruby on Rails while trying to improve LoopStudio by contributing ideas, resources, and help to make our processes better. I was also involved in other tasks such as reviewing code from several projects and helping estimate projects. Furthermore, I had the amazing challenge of leading a project for a couple of months making decisions that shaped up into a happy customer and an amazing product.',
   },
   {
     years: '2016 - 2017',
