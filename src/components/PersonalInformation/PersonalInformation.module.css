@@ -44,20 +44,9 @@
 }
 
 .photoContainer {
-  display: flex;
-  justify-content: center;
-  max-height: 33vh;
-  max-width: 100%;
-}
-
-.photoContainer div {
+  aspect-ratio: 586 / 968; /* Image original size */
   border-bottom: solid 1px;
-  position: unset !important;
-}
-
-.photoContainer img {
-  height: unset !important;
-  object-fit: contain;
-  position: relative !important;
-  width: 100% !important;
+  display: flex;
+  margin: auto;
+  max-height: 33vh;
 }
