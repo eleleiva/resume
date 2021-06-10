@@ -6,7 +6,7 @@ function Skill({ skill, icon }) {
   return (
     <li className={styles.skill}>
       <span>{skill}</span>
-      <FontAwesomeIcon icon={icon} />
+      <FontAwesomeIcon icon={icon} className={styles.skillIcon} />
     </li>
   );
 }
