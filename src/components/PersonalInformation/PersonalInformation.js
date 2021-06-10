@@ -1,14 +1,16 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Image from 'next/image';
 
 import styles from './PersonalInformation.module.css';
-import photo from './portrait.png';
 
 function PersonalInformation() {
   return (
     <section>
       <article className={styles.article}>
         <h1 className={styles.name}>Luca Leiva</h1>
-        <img alt="Luca" className={styles.photo} src={photo} />
+        <div className={styles.photoContainer}>
+          <Image src="/ll.webp" alt="Luca" layout="fill" priority />
+        </div>
         <p className={styles.description}>
           Curious and detail-oriented full-stack developer who strives to
           deliver quality and customer satisfaction on every PR.
