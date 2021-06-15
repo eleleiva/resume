@@ -6,6 +6,7 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "build": "next build",
     "dev": "next dev",
+    "lint": "next lint",
     "start": "next start",
     "test": "next test"
   },

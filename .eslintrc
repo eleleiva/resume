@@ -7,6 +7,8 @@
     "serviceworker": true
   },
   "extends": [
+    "next",
+    "next/core-web-vitals",
     "airbnb",
     "plugin:import/errors",
     "plugin:import/warnings",
