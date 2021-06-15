@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 
+import picture from '../../../public/ll.webp';
 import styles from './PersonalInformation.module.css';
 
 function PersonalInformation() {
@@ -9,7 +10,13 @@ function PersonalInformation() {
       <article className={styles.article}>
         <h1 className={styles.name}>Luca Leiva</h1>
         <div className={styles.photoContainer}>
-          <Image src="/ll.webp" alt="Luca" layout="fill" priority />
+          <Image
+            alt="Luca"
+            className={styles.image}
+            placeholder="blur"
+            src={picture}
+            priority
+          />
         </div>
         <p className={styles.description}>
           Curious and detail-oriented full-stack developer who strives to
