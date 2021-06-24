@@ -12,7 +12,7 @@ import styles from './App.module.css';
 
 library.add(icons);
 
-function App() {
+function App({ jobs, studies }) {
   return (
     <>
       <SEO />
@@ -25,10 +25,10 @@ function App() {
             <Skills />
           </section>
           <section className={styles.experience}>
-            <Experiences />
+            <Experiences jobs={jobs} />
           </section>
           <section className={styles.studies}>
-            <Studies />
+            <Studies studies={studies} />
           </section>
         </main>
       </MainLayout>
