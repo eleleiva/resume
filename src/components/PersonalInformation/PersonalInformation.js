@@ -7,13 +7,15 @@ import styles from './PersonalInformation.module.css';
 function PersonalInformation() {
   return (
     <section>
-      <article className={styles.article}>
+      <article>
         <h1 className={styles.name}>Luca Leiva</h1>
         <div className={styles.photoContainer}>
           <Image
             alt="Luca"
-            className={styles.image}
+            layout="fill"
+            objectFit="contain"
             placeholder="blur"
+            size="35vh"
             src={picture}
             priority
           />
@@ -26,6 +28,7 @@ function PersonalInformation() {
       </article>
       <article className={styles.links}>
         <a
+          className="umami--click--linked-in-link"
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.linkedin.com/in/luca-leiva-gonzalez/"
@@ -38,6 +41,7 @@ function PersonalInformation() {
           <span className={styles.hidden}>LinkedIn Profile</span>
         </a>
         <a
+          className="umami--click--github-profile-link"
           target="_blank"
           rel="noopener noreferrer"
           href="https://github.com/eleleiva"
@@ -50,6 +54,7 @@ function PersonalInformation() {
           <span className={styles.hidden}>GitHub Profile</span>
         </a>
         <a
+          className="umami--click--github-repo-link"
           target="_blank"
           rel="noopener noreferrer"
           href="https://github.com/eleleiva/resume"
@@ -64,7 +69,12 @@ function PersonalInformation() {
       </article>
       <article>
         <h2>Silly apps: </h2>
-        <a href="https://path-finder.lucaleiva.com">Path finder</a>
+        <a
+          className="umami--click--path-finder-link"
+          href="https://path-finder.lucaleiva.com"
+        >
+          Path finder
+        </a>
       </article>
     </section>
   );
