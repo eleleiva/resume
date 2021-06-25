@@ -1,6 +1,6 @@
 .description {
   margin: 1em auto;
-  max-width: 33vh;
+  max-width: 330px;
 }
 
 .hidden {
@@ -45,9 +45,9 @@
 }
 
 .photoContainer {
-  aspect-ratio: 586 / 968; /* Image original size */
   border-bottom: solid 1px;
-  display: flex;
+  position: relative;
+  max-width: 330px;
   margin: auto;
-  max-height: 33vh;
+  height: 35vh;
 }
