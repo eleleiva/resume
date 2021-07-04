@@ -1,4 +1,4 @@
-import { ApiClient, queries } from 'api';
+import { CMSClient, queries } from 'api/CMSClient';
 import { App } from 'components/App';
 
 function MainPage({ jobs, studies }) {
@@ -6,7 +6,7 @@ function MainPage({ jobs, studies }) {
 }
 
 export async function getStaticProps() {
-  const { data } = await ApiClient.query({
+  const { data } = await CMSClient.query({
     query: queries.initialLoad,
   });
 

@@ -1,0 +1,32 @@
+.spinner {
+  height: 1rem;
+  position: relative;
+  width: 1rem;
+}
+
+.firstBouncer,
+.secondBouncer {
+  animation: bounce 2s infinite ease-in-out;
+  background-color: #333;
+  border-radius: 50%;
+  height: 100%;
+  left: 0;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.secondBouncer {
+  animation-delay: -1s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
