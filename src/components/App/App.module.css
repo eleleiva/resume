@@ -5,7 +5,8 @@
   grid-template-areas:
     'skills'
     'experience'
-    'studies';
+    'studies'
+    'contact';
   grid-template-columns: repeat(1, 1fr);
   margin: 3em 2em;
 }
@@ -24,16 +25,7 @@
     margin: auto;
     position: relative;
   }
-}
 
-.stickyNote {
-  border-radius: 3px;
-  box-shadow: 30px 30px 15px -15px rgba(0, 0, 0, 0.1);
-  padding: 2em;
-  top: 2em;
-}
-
-@media (max-width: 720px) {
   .stickyNote p {
     margin: 0em;
   }
@@ -41,6 +33,13 @@
   .stickyNote section {
     margin: 0em;
   }
+}
+
+.stickyNote {
+  border-radius: 3px;
+  box-shadow: 30px 30px 15px -15px rgba(0, 0, 0, 0.1);
+  padding: 2em;
+  top: 2em;
 }
 
 .skills {
@@ -69,4 +68,12 @@
   background-color: #70c1b3;
   grid-area: studies;
   transform: rotate(2deg);
+}
+
+.contact {
+  composes: stickyNote;
+
+  background-color: #a2c5e5;
+  grid-area: contact;
+  transform: rotate(-0.5deg);
 }

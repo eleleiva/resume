@@ -1,0 +1,43 @@
+.error {
+  background-color: #ffc3c3;
+  border: 1px solid #9a0202;
+  border-radius: 3px;
+  color: #9a0202;
+  font-size: 0.75rem;
+  grid-area: error-message;
+  margin: 0.4rem 0;
+  padding: 0.3rem;
+}
+
+.input {
+  background-color: #eee;
+  border: 2px solid #8fb5db;
+  border-radius: 3px;
+  grid-area: input;
+  min-height: 1.5rem;
+  min-width: 15rem;
+  padding: 0.2rem 0.7rem;
+}
+
+.label {
+  display: grid;
+  grid-template-areas: 'label-text input input input input' 'empty error-message error-message error-message error-message';
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0.5rem 0;
+}
+
+.labelText {
+  grid-area: label-text;
+}
+
+@media (max-width: 720px) {
+  .input {
+    margin-top: 0.5rem;
+    min-width: 0;
+  }
+
+  .label {
+    grid-template-areas: 'label-text' 'input' 'error-message';
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

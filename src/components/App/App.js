@@ -1,6 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import { icons } from 'assets/icons';
+import { Contact } from 'components/Contact';
 import { Experiences } from 'components/Experiences';
 import { PersonalInformation } from 'components/PersonalInformation';
 import { SEO } from 'components/SEO';
@@ -29,6 +30,9 @@ function App({ jobs, studies }) {
           </section>
           <section className={styles.studies}>
             <Studies studies={studies} />
+          </section>
+          <section className={styles.contact}>
+            <Contact />
           </section>
         </main>
       </MainLayout>
