@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@apollo/client@^3.3.20":
-  version "3.3.20"
-  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.20.tgz#8f0935fa991857e9cf2e73c9bd378ad7ec97caf8"
-  integrity sha512-hS7UmBwJweudw/J3M0RAcusMHNiRuGqkRH6g91PM2ev8cXScIMdXr/++9jo7wD1nAITMCMF4HQQ3LFaw/Or0Bw==
+"@apollo/client@^3.3.21":
+  version "3.3.21"
+  resolved "https://registry.yarnpkg.com/@apollo/client/-/client-3.3.21.tgz#2862baa4e1ced8c5e89ebe6fc52877fc64a726aa"
+  integrity sha512-RAmZReFuKCKx0Rs5C0nVJwKomAHUHn+gGP/YvbEsXQWu0sXoncEUZa71UqlfCPVXa/0MkYOIbCXSQdOcuRrHgw==
   dependencies:
     "@graphql-typed-document-node/core" "^3.0.0"
     "@types/zen-observable" "^0.8.0"
@@ -17,7 +17,7 @@
     optimism "^0.16.0"
     prop-types "^15.7.2"
     symbol-observable "^4.0.0"
-    ts-invariant "^0.7.0"
+    ts-invariant "^0.8.0"
     tslib "^1.10.0"
     zen-observable "^0.8.14"
 
@@ -1198,10 +1198,10 @@ data-uri-to-buffer@3.0.1:
   resolved "https://registry.yarnpkg.com/data-uri-to-buffer/-/data-uri-to-buffer-3.0.1.tgz#594b8973938c5bc2c33046535785341abc4f3636"
   integrity sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==
 
-dayjs@^1.10.5:
-  version "1.10.5"
-  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.5.tgz#5600df4548fc2453b3f163ebb2abbe965ccfb986"
-  integrity sha512-BUFis41ikLz+65iH6LHQCDm4YPMj5r1YFLdupPIyM4SGcXMmtiLQ7U37i+hGS8urIuqe7I/ou3IS1jVc4nbN4g==
+dayjs@^1.10.6:
+  version "1.10.6"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.10.6.tgz#288b2aa82f2d8418a6c9d4df5898c0737ad02a63"
+  integrity sha512-AztC/IOW4L1Q41A86phW5Thhcrco3xuAA+YX/BLpLWWjRcTj5TOt/QImBLmCKlrF7u7k47arTnOyL6GnbG8Hvw==
 
 debug@2, debug@^2.6.9:
   version "2.6.9"
@@ -1662,10 +1662,10 @@ eslint-plugin-react@^7.23.1, eslint-plugin-react@^7.24.0:
     resolve "^2.0.0-next.3"
     string.prototype.matchall "^4.0.5"
 
-eslint-plugin-testing-library@^4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-4.7.0.tgz#2bf32514120bd3ac8ff2805cc52b12ae067cfd5f"
-  integrity sha512-CLVlCrBnCog8aaEi50D8HNN0bK5FzkNwHtY0ICUVGZLfnIdfmb6VrIePrj9PuGyvibvcC8txKn3jVhH5jmJjWg==
+eslint-plugin-testing-library@^4.9.0:
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-4.9.0.tgz#be65bab6cf20725c6a503974f134a65deea02de9"
+  integrity sha512-pnWco+Gi8I77K3DAusOmt9MMA1BG1/sbztkEptB4VbNeVxE0ju5sOyLETJ03CIx8eMNbQAZNeiLQB7hT5D0L3A==
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.24.0"
 
@@ -3279,10 +3279,10 @@ react-dom@17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-hook-form@^7.10.0:
-  version "7.10.0"
-  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.10.0.tgz#665c9897957a2a8bbf720cef9e913ba1b22b0e86"
-  integrity sha512-J6jJDw61TDNG0cEyLlYKUTPTwJH1Gfp8S8+m5Dt3mLY5vEy7UwKr60rl11ESofKmliFH8DconTVFnZgblhGvyg==
+react-hook-form@^7.10.1:
+  version "7.10.1"
+  resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.10.1.tgz#fd7c78ab72402c2f4a7ac4f6184e84ff0df129b2"
+  integrity sha512-YRSkOZ0DJKjJ+PuCB6caFbFSbz6I4JQcGXVb/OeEIVE3YuXXYYJ/YQwodRy8HsZ5WA+DryoThWIeZZzPd5f9lQ==
 
 react-is@17.0.2:
   version "17.0.2"
@@ -3931,10 +3931,10 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-ts-invariant@^0.7.0:
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/ts-invariant/-/ts-invariant-0.7.5.tgz#f9658719f9a7737b117d09820d952aacf6263f9c"
-  integrity sha512-qfVyqTYWEqADMtncLqwpUdMjMSXnsqOeqGtj1LeJNFDjz8oqZ1YxLEp29YCOq65z0LgEiERqQ8ThVjnfibJNpg==
+ts-invariant@^0.8.0:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/ts-invariant/-/ts-invariant-0.8.2.tgz#62af654ebfb8b1eeb55bc9adc2f40c6b93b0ff7e"
+  integrity sha512-VI1ZSMW8soizP5dU8DsMbj/TncHf7bIUqavuE7FTeYeQat454HHurJ8wbfCnVWcDOMkyiBUWOW2ytew3xUxlRw==
   dependencies:
     tslib "^2.1.0"
 
@@ -4232,7 +4232,7 @@ zen-observable@^0.8.14:
   resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.8.15.tgz#96415c512d8e3ffd920afd3889604e30b9eaac15"
   integrity sha512-PQ2PC7R9rslx84ndNBZB/Dkv8V8fZEpk83RLgXtYd0fwUgEjseMn1Dgajh2x6S8QbZAFa9p2qVCEuYZNgve0dQ==
 
-zod@^3.3.4:
-  version "3.3.4"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.3.4.tgz#5609bb7e945945108690f87ea73454111c323259"
-  integrity sha512-g5V20IUn3QBpbMKjZxKp58ocUOO9/L0OlJ5+rl84QSeN6tK5ea/yQboYA59t2D8Puc/qVyz4YflhCgqR2uMtaA==
+zod@^3.4.2:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.4.2.tgz#5a0bc511e683611101794e86228e22e3ea1b7783"
+  integrity sha512-RmrtdIvavWt2b3YNSsYDKoV4eDoDz9N6fioDVrs5iyU4WffdWs5aMQBuh2BGJMxya4mhVcIpveN84h2ceRLmRQ==
