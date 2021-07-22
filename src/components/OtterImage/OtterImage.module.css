@@ -1,0 +1,21 @@
+.container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  overflow: hidden;
+}
+
+.image {
+  animation: rotations 5s infinite linear;
+}
+
+@keyframes rotations {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
