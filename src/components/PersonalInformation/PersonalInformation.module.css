@@ -1,51 +1,13 @@
 .description {
-  margin: 1em auto;
+  margin: 2rem auto;
   max-width: 330px;
-}
-
-.hidden {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.icon {
-  min-width: 2rem;
-  color: #1c2321;
-  transform: perspective(1px) translateZ(0);
-  transition-duration: 0.3s;
-  transition-property: transform;
-}
-
-.icon:hover,
-.icon:focus,
-.icon:active {
-  transform: scale(1.2);
-}
-
-.links {
-  display: flex;
-  font-size: x-large;
-  justify-content: space-around;
-  margin: auto;
-  max-width: 0;
-  align-items: center;
-}
-
-.links a {
-  margin: 0 1em;
 }
 
 .name {
   font-size: xx-large;
-  margin-bottom: 0;
 }
 
 .photoContainer {
-  border-bottom: solid 1px;
   position: relative;
   max-width: 330px;
   margin: auto;

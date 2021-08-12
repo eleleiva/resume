@@ -1,0 +1,61 @@
+import { BlogLayout } from 'layouts/BlogLayout';
+
+# About this site
+
+This website is my cranny on the web where I can have some of my personal and professional persona printed across.
+
+On this page I describe _briefly_ the features that I wanted and the **technologies** I chose to implement them.
+
+**TL;DR** For this website I chose technologies:
+
+- With a **free** tier
+- That would allow me to somehow **grow** the project
+- Had development **speed and experience** as a priority
+
+Said technologies are:
+
+- CSS Modules
+- Vercel
+- Next.js
+- GraphCMS
+- Apollo
+- Umami
+- Supabase
+
+When first building this site my main concern was development speed as I needed to launch it as soon as possible. I approached the opportunity of building a personal site since I suddenly found myself with a window that had just opened whilst in the middle of a bunch of activities that were taking a bite of my time.
+
+Regarding design, I chose an element that represents what I’m used to seeing daily at my workplace: _sticky notes_. They are simple, hint a clean look, and help me organize with my team the workday. This site was originally developed with a technology that is no stranger to me, React. I went with a painless [CRA](https://create-react-app.dev/) setup, styled with CSS modules and an easy deployment flow with Github and Vercel.
+
+Initially, this web’s **content** was a recollection of my **studies** and what I was doing at **work**. It also comprehended a set of **technologies** that I already had a grasp on, along with a short **description** of my professional persona.
+
+After a couple of month, I found myself looking forward to improving the site and suddenly, without noticing, it became the core of my projects. The website transformed itself into a platform on which I started practicing and testing **new technologies**; the first on the list was [Next.js](https://nextjs.org/) which would improve its **performance** and SEO. Next.js allowed me to get a 100% on all metrics on Lighthouse, before its addition, the percentage wasn’t quite nailing an optimal performance. The migration to this framework had close to no complications, but I did find myself scratching my head regarding the styling of `next/image` as it wasn't as easy to use with the current image I had placed, but I could luckily work it out.
+
+As soon as I finished migrating I realized that some of those hardcoded texts were not belonging to the code base and a new home was needed for them so I ended up looking for a **CMS**:
+
+- **Flexible**, as I was not aware of what I would like to add in the future
+- With a **free** tier, as in the meantime adding an expense was not possible
+- **Simple to connect** to my current code
+
+What I came across was [GraphCMS](https://graphcms.com/), which besides those features, came with **GraphQL** as the main way to connect to it. _I fell in love_. I took it for a ride and so far I'm happy to do so. Along with GraphCMS came [Apollo](https://www.apollographql.com/) to solve the connection with GraphQL _in a breeze_.
+
+Sooner rather than later I start to wonder, are people looking at this site? Or is it just for me? Who is the target of this website? So to shine a light on that matter I decided to add **analytics**, as time is always on a crunch I rushed to add Google Analytics, which was kind of a mistake, GA adds cookies and I wasn't looking forward to adding a warning nor having the users of my site being tracked to that extend, so I started looking for _a better alternative_, I wanted it to be:
+
+- GDPR compliant
+- Able to easily track events
+- Aware of where the views come from
+
+A research lead me to [Umami](https://umami.is) which _ticked all those boxes_ so I parted ways with GA and deployed an instance of Umami to Vercel and with a database on Heroku, which later was changed to [Supabase](https://supabase.io/) as Heroku does not ensure the same connection string after maintenance.
+
+After realizing that people _were noticing my website_, mostly from LinkedIn, the next feature came easily to my mind: this site was due for a call to action, hence, a **contact form**.
+
+As soon as I thought about adding a contact form _serverless functions_ came to my mind, Next.js and Vercel would allow for easy peasy implementation, and they did, in just a couple of hours, most of which was setting up the Send Grid account, the serverless function was running _like a charm_, to which the form follow up. After trying a couple of ideas in the styling area the result was simple but did what it was meant to do with UX in mind.
+
+By writing up to this point the final piece of the puzzle was made obvious, I wrote all of this in a [.md](https://guides.github.com/features/mastering-markdown/#what) file, and the [Jamstack](https://jamstack.org/) ecosystem, where this new stack was leaning towards, has some great tools to handle markdown files and convert them to HTML and also tools to add markdown flavor to the texts coming from the CMS.
+
+The tools I finally use for this propouse are [@next/mdx](https://www.npmjs.com/package/@next/mdx) for handling the _files on the project_, namely this one, and [next-mdx-remote](https://github.com/hashicorp/next-mdx-remote) for the _conversion of those fields on the CMS_ that I wanted to enhance with markdown notations.
+
+On in all I'm **happy** with the result, I got to build a platform that I can use for my projects, and I'm looking forward to **expand** it, and **write** more about the tools I use.
+
+export default ({ children }) => (
+  <BlogLayout title="About this site">{children}</BlogLayout>
+);
