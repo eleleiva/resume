@@ -1,8 +1,19 @@
-import { CMSClient, queries } from 'api/CMSClient';
-import { App } from 'components/App';
+import { serialize } from 'next-mdx-remote/serialize';
 
-function MainPage({ jobs, studies }) {
-  return <App jobs={jobs} studies={studies} />;
+import { CMSClient, queries } from 'api/CMSClient';
+import { Home } from 'components/Home';
+
+const serializeByKeyInMap = (key) => async (item) => {
+  const serializedValue = await serialize(item[key]);
+
+  return {
+    ...item,
+    [key]: serializedValue,
+  };
+};
+
+function HomePage({ jobs, studies }) {
+  return <Home jobs={jobs} studies={studies} />;
 }
 
 export async function getStaticProps() {
@@ -10,12 +21,20 @@ export async function getStaticProps() {
     query: queries.initialLoad,
   });
 
+  const jobs = await Promise.all(
+    data.allJobs.map(serializeByKeyInMap('description'))
+  );
+
+  const studies = await Promise.all(
+    data.allStudies.map(serializeByKeyInMap('description'))
+  );
+
   return {
     props: {
-      jobs: data.jobs,
-      studies: data.studies,
+      jobs,
+      studies,
     },
   };
 }
 
-export default MainPage;
+export default HomePage;

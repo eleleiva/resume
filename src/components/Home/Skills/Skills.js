@@ -47,22 +47,6 @@ const skills = [
     skill: 'CSS',
     icon: ['fab', 'css3-alt'],
   },
-  {
-    skill: 'PHP',
-    icon: ['fab', 'php'],
-  },
-  {
-    skill: 'WordPress',
-    icon: ['fab', 'wordpress-simple'],
-  },
-  {
-    skill: 'Java',
-    icon: ['fab', 'java'],
-  },
-  {
-    skill: 'C#',
-    icon: ['fab', 'microsoft'],
-  },
 ];
 
 function Skills() {

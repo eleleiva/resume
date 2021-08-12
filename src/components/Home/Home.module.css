@@ -25,11 +25,9 @@
     margin: auto;
     position: relative;
   }
-
   .stickyNote p {
     margin: 0em;
   }
-
   .stickyNote section {
     margin: 0em;
   }
@@ -40,6 +38,7 @@
   box-shadow: 30px 30px 15px -15px rgba(0, 0, 0, 0.1);
   padding: 2em;
   top: 2em;
+  max-width: calc(65ch + 6rem);
 }
 
 .skills {
@@ -67,7 +66,7 @@
 
   background-color: #70c1b3;
   grid-area: studies;
-  transform: rotate(2deg);
+  transform: rotate(1deg);
 }
 
 .contact {

@@ -13,6 +13,7 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:jest-dom/recommended",
+    "plugin:jsx-a11y/recommended",
     "plugin:testing-library/react",
     "plugin:prettier/recommended",
     "prettier"

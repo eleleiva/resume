@@ -1,0 +1,18 @@
+.studies {
+  margin-left: 2em;
+}
+
+.studies p {
+  align-self: center;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.study {
+  display: flex;
+  flex-direction: column;
+}
+
+.subtitle {
+  margin: 0;
+}

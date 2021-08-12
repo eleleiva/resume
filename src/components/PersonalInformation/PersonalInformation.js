@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
 
-import picture from '../../../public/ll.webp';
+import picture from 'assets/images/ll.webp';
 import styles from './PersonalInformation.module.css';
 
 function PersonalInformation() {
