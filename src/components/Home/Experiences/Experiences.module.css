@@ -1,0 +1,18 @@
+.experiences {
+  margin-left: 2em;
+}
+
+.experiences p {
+  align-self: center;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+.experience {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: 0;
+}

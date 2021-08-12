@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 const initialLoad = gql`
   query InitialLoad {
-    jobs {
+    allJobs(orderBy: start_DESC) {
       id
       company
       description
@@ -10,7 +10,7 @@ const initialLoad = gql`
       start
     }
 
-    studies {
+    allStudies(orderBy: start_DESC) {
       id
       description
       end

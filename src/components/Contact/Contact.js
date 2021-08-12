@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { captureException } from '@sentry/nextjs';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -25,7 +26,7 @@ function Contact() {
       const { message } = await email.send({ body });
       setResponse(message);
     } catch (e) {
-      console.log('e: ', e);
+      captureException(e);
     } finally {
       setIsLoading(false);
     }

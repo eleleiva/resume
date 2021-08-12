@@ -1,16 +1,17 @@
+import { Label } from './Label';
+
 import styles from './Input.module.css';
 
 function Textarea({ eventClass, errors, label, name, placeholder, register }) {
   return (
-    <label className={styles.label} htmlFor={name}>
-      <span className={styles.labelText}>{label}</span>
+    <Label errors={errors} label={label} name={name}>
       <textarea
         className={`${styles.input} ${eventClass ?? ''}`}
+        id={name}
         placeholder={placeholder}
         {...register(name)}
       />
-      {errors ? <span className={styles.error}>{errors}</span> : null}
-    </label>
+    </Label>
   );
 }
 
