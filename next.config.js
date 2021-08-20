@@ -4,6 +4,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const { withSentryConfig } = require('@sentry/nextjs');
 
 const moduleExports = withBundleAnalyzer({
+  productionBrowserSourceMaps: true,
   reactStrictMode: true,
 });
 
