@@ -1,6 +1,6 @@
 {
   "env": {
-    "es2020": true,
+    "es2021": true,
     "jest": true,
     "browser": true,
     "commonjs": true,
@@ -9,7 +9,6 @@
   "extends": [
     "next",
     "next/core-web-vitals",
-    "airbnb",
     "plugin:jest-dom/recommended",
     "plugin:jsx-a11y/recommended",
     "plugin:testing-library/react",
