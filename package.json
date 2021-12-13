@@ -32,7 +32,7 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "@hookform/resolvers": "^2.8.4",
     "@sendgrid/mail": "^7.6.0",
-    "@sentry/nextjs": "^6.15.0",
+    "@sentry/nextjs": "^6.16.1",
     "dayjs": "^1.10.7",
     "graphql": "^16.1.0",
     "http-status-codes": "^2.1.4",
