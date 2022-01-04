@@ -1,4 +1,4 @@
-import { zodResolver } from '@hookform/resolvers/zod/dist/zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { captureException } from '@sentry/nextjs';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';

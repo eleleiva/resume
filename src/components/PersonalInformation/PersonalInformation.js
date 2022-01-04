@@ -21,8 +21,9 @@ function PersonalInformation() {
           />
         </div>
         <p className={styles.description}>
-          Curious and detail-oriented full-stack developer who strives to
-          deliver quality and customer satisfaction on every PR.
+          I&apos;m a web developer whose main focus is front-end development. I
+          always try my best to improve users as well as developers&apos;
+          experience in every project I lay hands on.
         </p>
         <p>Montevideo, Uruguay</p>
       </article>
