@@ -45,7 +45,7 @@
     "zod": "^3.11.6"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^12.0.8",
+    "@next/bundle-analyzer": "^12.0.9",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
