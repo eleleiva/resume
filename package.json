@@ -29,7 +29,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.16",
+    "@fortawesome/react-fontawesome": "^0.1.17",
     "@hookform/resolvers": "^2.8.8",
     "@sendgrid/mail": "^7.6.0",
     "@sentry/nextjs": "^6.17.1",
