@@ -31,7 +31,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/react-fontawesome": "^0.1.17",
     "@hookform/resolvers": "^2.8.8",
-    "@sendgrid/mail": "^7.6.0",
+    "@sendgrid/mail": "^7.6.1",
     "@sentry/nextjs": "^6.17.1",
     "dayjs": "^1.10.7",
     "graphql": "^16.2.0",
