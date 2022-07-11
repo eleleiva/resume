@@ -109,10 +109,10 @@
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.1.1.tgz#076d78ce99822258cf813ecc1e7fa460fa74d052"
   integrity sha512-NQ17ii0rK1b34VZonlmT2QMJFI70m0TRwbknO/ihlbatXyaktDhN/98vBiUU6kNBPljqGqyIrl2T4nY2RpFANg==
 
-"@hookform/resolvers@^2.9.3":
-  version "2.9.3"
-  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.9.3.tgz#13f6934cfe705e24fac094da377e0621adcfc424"
-  integrity sha512-Eqc/qgjq0VX/TU0a5D2O+yR/kAKflnjaVlYFC1wI2qBm/sgjKTXxv27ijLwHUoHPIF+MUkB/VuQqHJ5DcmbCww==
+"@hookform/resolvers@^2.9.5":
+  version "2.9.5"
+  resolved "https://registry.yarnpkg.com/@hookform/resolvers/-/resolvers-2.9.5.tgz#adfa2d240a9315f4ab6ff4c63621d22d1b574c07"
+  integrity sha512-4XABrKdE4GpX6v2RZ+Ij1Wrl9qPEl5ZvVhFxROY+SZhP/6TU8gPw0LO4ZS9/GgIbTx3Pw1U8HmcXVAoGOq+7iA==
 
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.2"
