@@ -1,4 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faCode } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 
 import picture from 'assets/images/ll.webp';
@@ -36,7 +38,7 @@ function PersonalInformation() {
         >
           <FontAwesomeIcon
             className={styles.icon}
-            icon={['fab', 'linkedin']}
+            icon={faLinkedin}
             aria-hidden="true"
           />
           <span className={styles.hidden}>LinkedIn Profile</span>
@@ -49,7 +51,7 @@ function PersonalInformation() {
         >
           <FontAwesomeIcon
             className={styles.icon}
-            icon={['fab', 'github']}
+            icon={faGithub}
             aria-hidden="true"
           />
           <span className={styles.hidden}>GitHub Profile</span>
@@ -62,7 +64,7 @@ function PersonalInformation() {
         >
           <FontAwesomeIcon
             className={styles.icon}
-            icon="code"
+            icon={faCode}
             aria-hidden="true"
           />
           <span className={styles.hidden}>GitHub Repository</span>
