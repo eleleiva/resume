@@ -1,10 +1,9 @@
-import { library } from '@fortawesome/fontawesome-svg-core';
-
-import { icons } from 'assets/icons';
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import './app.css';
 
-library.add(icons);
+config.autoAddCss = false;
 
 function App({ Component, pageProps }) {
   return <Component {...pageProps} />;

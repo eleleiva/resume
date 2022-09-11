@@ -1,3 +1,17 @@
+import {
+  faReact,
+  faJsSquare,
+  faNodeJs,
+  faConnectdevelop,
+  faHtml5,
+  faCss3Alt,
+} from '@fortawesome/free-brands-svg-icons';
+import {
+  faCodeBranch,
+  faDatabase,
+  faGem,
+} from '@fortawesome/free-solid-svg-icons';
+
 import { Skill } from './Skill';
 
 import styles from './Skills.module.css';
@@ -5,47 +19,47 @@ import styles from './Skills.module.css';
 const skills = [
   {
     skill: 'React',
-    icon: ['fab', 'react'],
+    icon: faReact,
   },
   {
     skill: 'JavaScript',
-    icon: ['fab', 'js-square'],
+    icon: faJsSquare,
   },
   {
     skill: 'Node.js',
-    icon: ['fab', 'node-js'],
+    icon: faNodeJs,
   },
   {
     skill: 'Git',
-    icon: 'code-branch',
+    icon: faCodeBranch,
   },
   {
     skill: 'SQL',
-    icon: 'database',
+    icon: faDatabase,
   },
   {
     skill: 'Ruby on Rails',
-    icon: 'gem',
+    icon: faGem,
   },
   {
     skill: 'Ruby',
-    icon: 'gem',
+    icon: faGem,
   },
   {
     skill: 'GraphQL',
-    icon: ['fab', 'connectdevelop'],
+    icon: faConnectdevelop,
   },
   {
     skill: 'TypeScript',
-    icon: ['fab', 'js'],
+    icon: faJsSquare,
   },
   {
     skill: 'HTML',
-    icon: ['fab', 'html5'],
+    icon: faHtml5,
   },
   {
     skill: 'CSS',
-    icon: ['fab', 'css3-alt'],
+    icon: faCss3Alt,
   },
 ];
 
