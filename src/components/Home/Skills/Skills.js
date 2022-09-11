@@ -1,16 +1,12 @@
-import {
-  faReact,
-  faJsSquare,
-  faNodeJs,
-  faConnectdevelop,
-  faHtml5,
-  faCss3Alt,
-} from '@fortawesome/free-brands-svg-icons';
-import {
-  faCodeBranch,
-  faDatabase,
-  faGem,
-} from '@fortawesome/free-solid-svg-icons';
+import { faReact } from '@fortawesome/free-brands-svg-icons/faReact';
+import { faJsSquare } from '@fortawesome/free-brands-svg-icons/faJsSquare';
+import { faNodeJs } from '@fortawesome/free-brands-svg-icons/faNodeJs';
+import { faConnectdevelop } from '@fortawesome/free-brands-svg-icons/faConnectdevelop';
+import { faHtml5 } from '@fortawesome/free-brands-svg-icons/faHtml5';
+import { faCss3Alt } from '@fortawesome/free-brands-svg-icons/faCss3Alt';
+import { faCodeBranch } from '@fortawesome/free-solid-svg-icons/faCodeBranch';
+import { faDatabase } from '@fortawesome/free-solid-svg-icons/faDatabase';
+import { faGem } from '@fortawesome/free-solid-svg-icons/faGem';
 
 import { Skill } from './Skill';
 
