@@ -26,10 +26,6 @@
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
-    "@fortawesome/fontawesome-svg-core": "^6.2.0",
-    "@fortawesome/free-brands-svg-icons": "^6.2.0",
-    "@fortawesome/free-solid-svg-icons": "^6.2.0",
-    "@fortawesome/react-fontawesome": "^0.2.0",
     "@hookform/resolvers": "^2.9.8",
     "@sendgrid/mail": "^7.7.0",
     "@sentry/nextjs": "^7.12.1",

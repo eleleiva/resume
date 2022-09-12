@@ -1,13 +1,13 @@
-import { faReact } from '@fortawesome/free-brands-svg-icons/faReact';
-import { faJsSquare } from '@fortawesome/free-brands-svg-icons/faJsSquare';
-import { faNodeJs } from '@fortawesome/free-brands-svg-icons/faNodeJs';
-import { faConnectdevelop } from '@fortawesome/free-brands-svg-icons/faConnectdevelop';
-import { faHtml5 } from '@fortawesome/free-brands-svg-icons/faHtml5';
-import { faCss3Alt } from '@fortawesome/free-brands-svg-icons/faCss3Alt';
-import { faCodeBranch } from '@fortawesome/free-solid-svg-icons/faCodeBranch';
-import { faDatabase } from '@fortawesome/free-solid-svg-icons/faDatabase';
-import { faGem } from '@fortawesome/free-solid-svg-icons/faGem';
-
+import { ReactIcon } from 'assets/icons/ReactIcon';
+import { JSIcon } from 'assets/icons/JSIcon';
+import { NodeIcon } from 'assets/icons/NodeIcon';
+import { GitIcon } from 'assets/icons/GitIcon';
+import { SQLIcon } from 'assets/icons/SQLIcon';
+import { RubyIcon } from 'assets/icons/RubyIcon';
+import { GraphQLIcon } from 'assets/icons/GraphQLIcon';
+import { TypeScriptIcon } from 'assets/icons/TypeScriptIcon';
+import { HTMLIcon } from 'assets/icons/HTMLIcon';
+import { CSSIcon } from 'assets/icons/CSSIcon';
 import { Skill } from './Skill';
 
 import styles from './Skills.module.css';
@@ -15,47 +15,47 @@ import styles from './Skills.module.css';
 const skills = [
   {
     skill: 'React',
-    icon: faReact,
+    Icon: ReactIcon,
   },
   {
     skill: 'JavaScript',
-    icon: faJsSquare,
+    Icon: JSIcon,
   },
   {
     skill: 'Node.js',
-    icon: faNodeJs,
+    Icon: NodeIcon,
   },
   {
     skill: 'Git',
-    icon: faCodeBranch,
+    Icon: GitIcon,
   },
   {
     skill: 'SQL',
-    icon: faDatabase,
+    Icon: SQLIcon,
   },
   {
     skill: 'Ruby on Rails',
-    icon: faGem,
+    Icon: RubyIcon,
   },
   {
     skill: 'Ruby',
-    icon: faGem,
+    Icon: RubyIcon,
   },
   {
     skill: 'GraphQL',
-    icon: faConnectdevelop,
+    Icon: GraphQLIcon,
   },
   {
     skill: 'TypeScript',
-    icon: faJsSquare,
+    Icon: TypeScriptIcon,
   },
   {
     skill: 'HTML',
-    icon: faHtml5,
+    Icon: HTMLIcon,
   },
   {
     skill: 'CSS',
-    icon: faCss3Alt,
+    Icon: CSSIcon,
   },
 ];
 
@@ -64,8 +64,8 @@ function Skills() {
     <>
       <h2>Skills</h2>
       <ol className={styles.skills}>
-        {skills.map(({ skill, icon }) => (
-          <Skill key={skill} skill={skill} icon={icon} />
+        {skills.map(({ skill, Icon }) => (
+          <Skill key={skill} skill={skill} Icon={Icon} />
         ))}
       </ol>
     </>

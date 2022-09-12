@@ -1,9 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin';
-import { faCode } from '@fortawesome/free-solid-svg-icons/faCode';
 import Image from 'next/image';
 
+import { GithubIcon } from 'assets/icons/GithubIcon';
+import { CodeIcon } from 'assets/icons/CodeIcon';
+import { LinkedInIcon } from 'assets/icons/LinkedInIcon';
 import picture from 'assets/images/ll.webp';
 import styles from './PersonalInformation.module.css';
 
@@ -37,11 +36,7 @@ function PersonalInformation() {
           rel="noopener noreferrer"
           href="https://www.linkedin.com/in/luca-leiva-gonzalez/"
         >
-          <FontAwesomeIcon
-            className={styles.icon}
-            icon={faLinkedin}
-            aria-hidden="true"
-          />
+          <LinkedInIcon className={styles.icon} aria-hidden="true" />
           <span className={styles.hidden}>LinkedIn Profile</span>
         </a>
         <a
@@ -50,11 +45,7 @@ function PersonalInformation() {
           rel="noopener noreferrer"
           href="https://github.com/eleleiva"
         >
-          <FontAwesomeIcon
-            className={styles.icon}
-            icon={faGithub}
-            aria-hidden="true"
-          />
+          <GithubIcon className={styles.icon} aria-hidden="true" />
           <span className={styles.hidden}>GitHub Profile</span>
         </a>
         <a
@@ -63,11 +54,7 @@ function PersonalInformation() {
           rel="noopener noreferrer"
           href="https://github.com/eleleiva/resume"
         >
-          <FontAwesomeIcon
-            className={styles.icon}
-            icon={faCode}
-            aria-hidden="true"
-          />
+          <CodeIcon className={styles.icon} aria-hidden="true" />
           <span className={styles.hidden}>GitHub Repository</span>
         </a>
       </article>
