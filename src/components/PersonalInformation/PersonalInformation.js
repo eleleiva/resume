@@ -58,13 +58,19 @@ function PersonalInformation() {
           <span className={styles.hidden}>GitHub Repository</span>
         </a>
       </article>
-      <article>
+      <article className={styles.sillyAppsContainer}>
         <h2>Silly apps: </h2>
         <a
           className="umami--click--path-finder-link"
           href="https://path-finder.lucaleiva.com"
         >
           Path finder
+        </a>
+        <a
+          className="umami--click--typify-link"
+          href="https://typify.lucaleiva.com"
+        >
+          Typify
         </a>
       </article>
     </section>

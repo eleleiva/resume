@@ -51,3 +51,9 @@
   margin: auto;
   height: 35vh;
 }
+
+.sillyAppsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
