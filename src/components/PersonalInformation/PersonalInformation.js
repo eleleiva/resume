@@ -14,10 +14,8 @@ function PersonalInformation() {
         <div className={styles.photoContainer}>
           <Image
             alt="Luca"
-            layout="fill"
-            objectFit="contain"
             placeholder="blur"
-            size="35vh"
+            style={{ height: '35vh', width: 'auto' }}
             src={picture}
             priority
           />

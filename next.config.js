@@ -11,6 +11,7 @@ const moduleExports = withBundleAnalyzer({
 
 const SentryWebpackPluginOptions = {
   silent: true,
+  hideSourceMaps: true,
 };
 
 module.exports = withSentryConfig(moduleExports, SentryWebpackPluginOptions);
