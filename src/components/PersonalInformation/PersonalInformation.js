@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { GithubIcon } from 'assets/icons/GithubIcon';
 import { CodeIcon } from 'assets/icons/CodeIcon';
 import { LinkedInIcon } from 'assets/icons/LinkedInIcon';
-import picture from 'assets/images/ll.webp';
+import picture from '../../../public/ll.webp';
 import styles from './PersonalInformation.module.css';
 
 function PersonalInformation() {

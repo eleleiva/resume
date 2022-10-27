@@ -12,11 +12,13 @@ const serializeByKeyInMap = (key) => async (item) => {
   };
 };
 
-function HomePage({ jobs, studies }) {
+async function HomePage() {
+  const { jobs, studies } = await getData();
+
   return <Home jobs={jobs} studies={studies} />;
 }
 
-export async function getStaticProps() {
+async function getData() {
   const { data } = await CMSClient.query({
     query: queries.initialLoad,
   });
@@ -30,10 +32,8 @@ export async function getStaticProps() {
   );
 
   return {
-    props: {
-      jobs,
-      studies,
-    },
+    jobs,
+    studies,
   };
 }
 

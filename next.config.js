@@ -6,7 +6,9 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const moduleExports = withBundleAnalyzer({
   productionBrowserSourceMaps: true,
   reactStrictMode: true,
-  swcMinify: true,
+  experimental: {
+    appDir: true,
+  },
 });
 
 const SentryWebpackPluginOptions = {
