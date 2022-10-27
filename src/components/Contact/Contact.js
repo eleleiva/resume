@@ -37,7 +37,6 @@ function Contact() {
       <h2>Let&apos;s chat</h2>
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <Input
-          eventClass="umami--focus--from-input"
           errors={errors.from?.message}
           label="From"
           name="from"
@@ -45,7 +44,6 @@ function Contact() {
           register={register}
         />
         <Input
-          eventClass="umami--focus--subject-input"
           errors={errors.subject?.message}
           label="Subject"
           name="subject"
@@ -53,7 +51,6 @@ function Contact() {
           register={register}
         />
         <Textarea
-          eventClass="umami--focus--text-input"
           errors={errors.text?.message}
           label="Message"
           name="text"
@@ -63,11 +60,7 @@ function Contact() {
         <div className={styles.submitContainer}>
           {response ? <span className={styles.message}>{response}</span> : null}
           {isLoading ? <Spinner /> : null}
-          <Button
-            disabled={isLoading}
-            eventClass="umami--click--send-email"
-            label="Send"
-          />
+          <Button disabled={isLoading} label="Send" />
         </div>
       </form>
     </>

@@ -29,7 +29,6 @@ function PersonalInformation() {
       </article>
       <article className={styles.links}>
         <a
-          className="umami--click--linked-in-link"
           target="_blank"
           rel="noopener noreferrer"
           href="https://www.linkedin.com/in/luca-leiva-gonzalez/"
@@ -38,7 +37,6 @@ function PersonalInformation() {
           <span className={styles.hidden}>LinkedIn Profile</span>
         </a>
         <a
-          className="umami--click--github-profile-link"
           target="_blank"
           rel="noopener noreferrer"
           href="https://github.com/eleleiva"
@@ -47,7 +45,6 @@ function PersonalInformation() {
           <span className={styles.hidden}>GitHub Profile</span>
         </a>
         <a
-          className="umami--click--github-repo-link"
           target="_blank"
           rel="noopener noreferrer"
           href="https://github.com/eleleiva/resume"
@@ -58,18 +55,8 @@ function PersonalInformation() {
       </article>
       <article className={styles.sillyAppsContainer}>
         <h2>Silly apps: </h2>
-        <a
-          className="umami--click--path-finder-link"
-          href="https://path-finder.lucaleiva.com"
-        >
-          Path finder
-        </a>
-        <a
-          className="umami--click--typify-link"
-          href="https://typify.lucaleiva.com"
-        >
-          Typify
-        </a>
+        <a href="https://path-finder.lucaleiva.com">Path finder</a>
+        <a href="https://typify.lucaleiva.com">Typify</a>
       </article>
     </section>
   );

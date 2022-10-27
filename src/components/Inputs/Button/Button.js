@@ -1,12 +1,8 @@
 import styles from './Button.module.css';
 
-function Button({ disabled, eventClass, label }) {
+function Button({ disabled, label }) {
   return (
-    <button
-      className={`${styles.button} ${eventClass ?? ''}`}
-      disabled={disabled}
-      type="submit"
-    >
+    <button className={styles.button} disabled={disabled} type="submit">
       {label}
     </button>
   );
