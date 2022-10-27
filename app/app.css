@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
-
 body {
   background-color: #eee;
   color: #1c2321;
-  font-family: 'Ubuntu', sans-serif, -apple-system;
   margin: 0;
   text-shadow: 1px 1px 9px rgba(0, 0, 0, 0.1);
   -webkit-font-smoothing: antialiased;
