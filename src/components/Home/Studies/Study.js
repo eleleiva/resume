@@ -1,7 +1,4 @@
-'use client';
-
-import { MDXRemote } from 'next-mdx-remote';
-
+import { MDXRemoteWrapper } from 'components/MDXRemoteWrapper';
 import { getTimespan } from 'utils/date';
 
 import styles from './Studies.module.css';
@@ -13,7 +10,7 @@ function Study({ study }) {
     <article className={styles.study}>
       <h3>{study.title}</h3>
       <h4 className={styles.subtitle}>{institute}</h4>
-      <MDXRemote {...study.description} />
+      <MDXRemoteWrapper {...study.description} />
     </article>
   );
 }
