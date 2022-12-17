@@ -5,7 +5,7 @@ import { SEO } from 'components/SEO';
 
 import './app.css';
 
-const ubuntu = Ubuntu({ weight: '400', preload: true });
+const ubuntu = Ubuntu({ subsets: ['latin'], weight: '400', preload: true });
 
 export default function RootLayout({ children }) {
   return (
