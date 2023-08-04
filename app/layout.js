@@ -1,4 +1,4 @@
-import { Ubuntu } from '@next/font/google';
+import { Ubuntu } from 'next/font/google';
 
 import { AnalyticsWrapper } from 'components/AnalyticsWrapper';
 import { SEO } from 'components/SEO';
