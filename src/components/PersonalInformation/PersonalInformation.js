@@ -56,6 +56,7 @@ function PersonalInformation() {
         <h2>Silly apps: </h2>
         <a href="https://path-finder.lucaleiva.com">Path finder</a>
         <a href="https://typify.lucaleiva.com">Typify</a>
+        <a href="https://agent-models.lucaleiva.com">Animations</a>
       </article>
     </section>
   );
