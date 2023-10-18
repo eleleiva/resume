@@ -1,1 +1,0 @@
-export { Studies } from './Studies';
