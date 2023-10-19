@@ -5,12 +5,12 @@
 	import Link from '$lib/ui/Link.svelte';
 	import Textarea from '$lib/ui/Textarea.svelte';
 	import { buildThresholdList } from '$lib/utilities/animation';
+	import { clamp } from '$lib/utilities/math';
 	import { onMount } from 'svelte';
 
 	let form: HTMLFormElement;
 	let header: HTMLElement;
 	let footer: HTMLElement;
-	let container: HTMLElement;
 
 	const handleGetInTouchButton = () => {
 		form.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' });
@@ -31,8 +31,12 @@
 	};
 
 	const ANIMATION_SMOOTHNESS = 3;
-	$: saturationLevelPercent = currentIntersectionRatio * ANIMATION_SMOOTHNESS * 100;
-	$: invertedSaturationLevelPercent = 100 - currentIntersectionRatio * ANIMATION_SMOOTHNESS * 100;
+	$: saturationLevelPercent = clamp(currentIntersectionRatio * ANIMATION_SMOOTHNESS * 100, 9, 100);
+	$: invertedSaturationLevelPercent = clamp(
+		100 - currentIntersectionRatio * ANIMATION_SMOOTHNESS * 100,
+		9,
+		100
+	);
 
 	onMount(() => {
 		const observer = new IntersectionObserver(handleIntersections, {
@@ -45,7 +49,6 @@
 </script>
 
 <div
-	bind:this={container}
 	class="container"
 	style:background-color={`hsla(0, 0%, ${invertedSaturationLevelPercent}%, 1)`}
 	style:color={`hsla(0, 0%, ${saturationLevelPercent}%, 1)`}
@@ -427,7 +430,7 @@
 		transition:
 			background-color 500ms ease,
 			color 500ms ease;
-		background-color: #161616;
+		background-color: hsl(0, 0%, 9%);
 		color: #fff;
 
 		padding: 2rem 1rem;
