@@ -22,8 +22,6 @@
 		gap: 0.5rem;
 		text-transform: uppercase;
 
-		color: #fff;
-
 		font-family: NeueBit;
 		font-size: 1rem;
 		font-style: normal;

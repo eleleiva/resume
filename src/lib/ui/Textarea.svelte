@@ -13,7 +13,7 @@
 
 <style>
 	textarea {
-		color: hsla(0, 0%, 100%, 1);
+		color: currentColor;
 		background-color: transparent;
 		display: flex;
 		padding: 1rem 0.75rem;
@@ -24,7 +24,7 @@
 		line-height: normal;
 		gap: 0.625rem;
 		align-self: stretch;
-		border: 1px solid hsla(0, 0%, 100%, 1);
+		border: 1px solid currentColor;
 	}
 
 	textarea:focus-visible {

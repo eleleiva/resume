@@ -4,8 +4,13 @@
 	import Input from '$lib/ui/Input.svelte';
 	import Link from '$lib/ui/Link.svelte';
 	import Textarea from '$lib/ui/Textarea.svelte';
+	import { buildThresholdList } from '$lib/utilities/animation';
+	import { onMount } from 'svelte';
 
 	let form: HTMLFormElement;
+	let header: HTMLElement;
+	let footer: HTMLElement;
+	let container: HTMLElement;
 
 	const handleGetInTouchButton = () => {
 		form.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' });
@@ -14,140 +19,166 @@
 	const handleBackToTop = () => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	};
+
+	let currentIntersectionRatio: number = 0;
+
+	const handleIntersections = (entries: IntersectionObserverEntry[]) => {
+		entries.forEach((entry) => {
+			currentIntersectionRatio = entry.intersectionRatio;
+		});
+	};
+
+	const ANIMATION_SMOOTHNESS = 3;
+	$: saturationLevelPercent = currentIntersectionRatio * ANIMATION_SMOOTHNESS * 100;
+	$: invertedSaturationLevelPercent = 100 - currentIntersectionRatio * ANIMATION_SMOOTHNESS * 100;
+
+	onMount(() => {
+		const observer = new IntersectionObserver(handleIntersections, {
+			threshold: buildThresholdList()
+		});
+
+		observer.observe(header);
+		observer.observe(footer);
+	});
 </script>
 
-<header>
-	<nav>
-		<a href="mailto:lucaleiva248@gmail.com">lucaleiva248@gmail.com</a>
-		<Button onClick={handleGetInTouchButton}>Get in touch</Button>
-	</nav>
-	<section class="jumbotron">
-		<p>Hello there<Icon name="cat" /></p>
-		<h1>My name is Luca,<br /> I&apos;m a Full-Stack web <br /> developer</h1>
-		<h2>Inquisitive, tech-savvy but above all, incisive</h2>
-	</section>
-</header>
-
-<main>
-	<section class="about-me-header">
-		<Icon name="mapMarker" />
-		<h3>Born and based in Montevideo, Uruguay</h3>
-		<p>But open for gigs all around the globe</p>
-	</section>
-	<article class="about-me-container">
-		<section class="about-me-aside">
-			<img src="/images/illustration.png" alt="Pixelated avatar" />
-			<div class="about-me-aside-links-container">
-				<Link href="https://www.linkedin.com/in/luca-leiva-gonzalez/">linkedin</Link>
-				<Link href="https://github.com/eleleiva/">github</Link>
-				<Link href="https://github.com/eleleiva/resume">source code</Link>
-			</div>
+<div
+	bind:this={container}
+	class="container"
+	style:background-color={`hsla(0, 0%, ${invertedSaturationLevelPercent}%, 1)`}
+	style:color={`hsla(0, 0%, ${saturationLevelPercent}%, 1)`}
+>
+	<header bind:this={header}>
+		<nav>
+			<a href="mailto:lucaleiva248@gmail.com">lucaleiva248@gmail.com</a>
+			<Button onClick={handleGetInTouchButton}>Get in touch</Button>
+		</nav>
+		<section class="jumbotron">
+			<p>Hello there<Icon name="cat" /></p>
+			<h1>My name is Luca,<br /> I&apos;m a Full-Stack web <br /> developer</h1>
+			<h2>Inquisitive, tech-savvy but above all, incisive</h2>
 		</section>
-		<section>
-			<h4 class="about-me-title">About<Icon name="happyFace" /></h4>
-			<p>
-				From the moment I first laid my fingers on a keyboard and tapped into the digital world,
-				I&apos;ve been on an epic quest to unravel the mysteries of how computers work. But what
-				really set my heart aflutter was the internet&apos;s incredible power to connect the world.
-			</p>
-			<p>
-				I&apos;m passionate about democratizing technology and ensuring that information is easily
-				accessible to all, regardless of their challenges.
-			</p>
-			<p>
-				As I ventured into this field, I developed a keen interest in creating component libraries
-				and mentoring others. On a completely unrelated note, I also dabble in craft beer making.
-			</p>
-			<p>
-				So, whether I&apos;m concocting code or brewing a batch of the finest ale, I&apos;m all
-				about making the world a more accessible place.
-			</p>
+	</header>
+
+	<main>
+		<section class="about-me-header">
+			<Icon name="mapMarker" />
+			<h3>Born and based in Montevideo, Uruguay</h3>
+			<p>But open for gigs all around the globe</p>
 		</section>
-	</article>
+		<article class="about-me-container">
+			<section class="about-me-aside">
+				<img src="/images/illustration.png" alt="Pixelated avatar" />
+				<div class="about-me-aside-links-container">
+					<Link href="https://www.linkedin.com/in/luca-leiva-gonzalez/">linkedin</Link>
+					<Link href="https://github.com/eleleiva/">github</Link>
+					<Link href="https://github.com/eleleiva/resume">source code</Link>
+				</div>
+			</section>
+			<section>
+				<h4 class="about-me-title">About<Icon name="happyFace" /></h4>
+				<p>
+					From the moment I first laid my fingers on a keyboard and tapped into the digital world,
+					I&apos;ve been on an epic quest to unravel the mysteries of how computers work. But what
+					really set my heart aflutter was the internet&apos;s incredible power to connect the
+					world.
+				</p>
+				<p>
+					I&apos;m passionate about democratizing technology and ensuring that information is easily
+					accessible to all, regardless of their challenges.
+				</p>
+				<p>
+					As I ventured into this field, I developed a keen interest in creating component libraries
+					and mentoring others. On a completely unrelated note, I also dabble in craft beer making.
+				</p>
+				<p>
+					So, whether I&apos;m concocting code or brewing a batch of the finest ale, I&apos;m all
+					about making the world a more accessible place.
+				</p>
+			</section>
+		</article>
 
-	<article class="projects-section-container">
-		<div class="projects-header-container">
-			<Icon name="box" />
-			<h3>My side projects</h3>
-		</div>
-		<div class="projects-container">
-			<section>
-				<img src="/images/particles-screenshot.png" alt="Particles screenshot" />
-				<div class="project-header-container">
-					<h4>Particles</h4>
-					<Link href="https://agents-model.lucaleiva.com">View project</Link>
-				</div>
-			</section>
-			<section>
-				<img src="/images/pathfinder-screenshot.png" alt="Pathfinder screenshot" />
-				<div class="project-header-container">
-					<h4>Pathfinder</h4>
-					<Link href="https://pathfinder.lucaleiva.com">View project</Link>
-				</div>
-			</section>
-			<section>
-				<img src="/images/typify-screenshot.png" alt="Typify screenshot" />
-				<div class="project-header-container">
-					<h4>Typify</h4>
-					<Link href="https://typify.lucaleiva.com">View project</Link>
-				</div>
-			</section>
-		</div>
-	</article>
-</main>
-
-<footer>
-	<section class="form-container">
-		<div class="call-to-action-container">
-			<Icon name="cupOfTea" />
-			<h3>Drop me a line</h3>
-			<h4>Or hit me up at <a href="mailto:lucaleiva248@gmail.com">lucaleiva248@gmail.com</a></h4>
-		</div>
-		<form bind:this={form}>
-			<Input
-				name="from"
-				type="email"
-				required
-				label="From"
-				placeholder="EXAMPLE: FRODOBAGGINS@GMAIL.COM"
-			/>
-			<Input
-				name="subject"
-				type="text"
-				required
-				label="Subject"
-				placeholder="GIVE IT A CATCHY TITLE"
-			/>
-			<Textarea name="message" label="Message" />
-			<div>
-				<Button type="submit">Send</Button>
-				<!-- success/error message -->
+		<article class="projects-section-container">
+			<div class="projects-header-container">
+				<Icon name="box" />
+				<h3>My side projects</h3>
 			</div>
-		</form>
-	</section>
-	<section class="closing-tag-container">
-		<img src="/images/computer.png" alt="Pixelated computer with a smiley face on the screen" />
-		<p>If you&apos;ve scrolled this far, thank you :)</p>
-		<Button onClick={handleBackToTop}>Back to top</Button>
-	</section>
-</footer>
+			<div class="projects-container">
+				<section>
+					<img src="/images/particles-screenshot.png" alt="Particles screenshot" />
+					<div class="project-header-container">
+						<h4>Particles</h4>
+						<Link href="https://agents-model.lucaleiva.com">View project</Link>
+					</div>
+				</section>
+				<section>
+					<img src="/images/pathfinder-screenshot.png" alt="Pathfinder screenshot" />
+					<div class="project-header-container">
+						<h4>Pathfinder</h4>
+						<Link href="https://pathfinder.lucaleiva.com">View project</Link>
+					</div>
+				</section>
+				<section>
+					<img src="/images/typify-screenshot.png" alt="Typify screenshot" />
+					<div class="project-header-container">
+						<h4>Typify</h4>
+						<Link href="https://typify.lucaleiva.com">View project</Link>
+					</div>
+				</section>
+			</div>
+		</article>
+	</main>
+
+	<footer bind:this={footer}>
+		<section class="form-container">
+			<div class="call-to-action-container">
+				<Icon name="cupOfTea" />
+				<h3>Drop me a line</h3>
+				<h4>Or hit me up at <a href="mailto:lucaleiva248@gmail.com">lucaleiva248@gmail.com</a></h4>
+			</div>
+			<form bind:this={form}>
+				<Input
+					name="from"
+					type="email"
+					required
+					label="From"
+					placeholder="FRODOBAGGINS@GMAIL.COM"
+				/>
+				<Input
+					name="subject"
+					type="text"
+					required
+					label="Subject"
+					placeholder="GIVE IT A CATCHY TITLE"
+				/>
+				<Textarea name="message" label="Message" />
+				<div>
+					<Button type="submit">Send</Button>
+					<!-- success/error message -->
+				</div>
+			</form>
+		</section>
+		<section class="closing-tag-container">
+			<img src="/images/computer.png" alt="Pixelated computer with a smiley face on the screen" />
+			<p>If you&apos;ve scrolled this far, thank you :)</p>
+			<Button onClick={handleBackToTop}>Back to top</Button>
+		</section>
+	</footer>
+</div>
 
 <style>
 	header,
 	footer {
+		min-height: 100dvh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		color: #fff;
-		background-color: #161616;
 		margin: auto;
 	}
 
 	main {
 		display: flex;
 		flex-direction: column;
-		color: #161616;
-		background-color: #fff;
 		gap: 12.5rem;
 		padding: 16rem 5rem 16rem 5rem;
 	}
@@ -180,12 +211,11 @@
 	}
 
 	a {
-		color: #fff;
+		color: currentColor;
 		font-family: NeueBit;
 	}
 
 	h1 {
-		color: #fff;
 		text-align: center;
 		font-family: NeueBit;
 		font-size: 6.75rem;
@@ -209,7 +239,6 @@
 	}
 
 	h3 {
-		color: #161616;
 		font-family: Mondwest;
 		font-size: 4rem;
 		font-style: normal;
@@ -218,18 +247,12 @@
 	}
 
 	h4 {
-		color: #161616;
 		font-family: NeueBit;
 		font-size: 1.5rem;
 		font-style: normal;
 		font-weight: 700;
 		line-height: normal;
 		letter-spacing: 0.12rem;
-	}
-
-	footer h3,
-	footer h4 {
-		color: #fff;
 	}
 
 	form {
@@ -252,7 +275,6 @@
 	}
 
 	.jumbotron p {
-		color: #fff;
 		text-align: center;
 		font-family: NeueBit;
 		font-size: 1.25rem;
@@ -283,8 +305,6 @@
 		text-transform: uppercase;
 		font-family: NeueBit;
 
-		color: #fff;
-
 		text-align: center;
 		font-size: 1.25rem;
 		font-style: normal;
@@ -304,15 +324,18 @@
 	}
 
 	.projects-container {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
+		display: grid;
 		gap: 5rem;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 1440px) {
+		.projects-container {
+			grid-template-columns: 1fr;
+		}
 	}
 
 	.project-header-container h4 {
-		color: #161616;
-
 		font-family: Inter;
 		font-size: 2rem;
 		font-style: normal;
@@ -346,8 +369,6 @@
 
 	.about-me-header p {
 		font-family: NeueBit;
-
-		color: #161616;
 
 		text-align: center;
 		font-size: 1.25rem;
@@ -384,12 +405,26 @@
 		display: flex;
 		gap: 6rem;
 		justify-content: center;
-		color: #161616;
 
 		font-family: Inter;
 		font-size: 1rem;
 		font-style: normal;
 		font-weight: 400;
 		line-height: normal;
+	}
+
+	.container {
+		transition:
+			background-color 500ms ease,
+			color 500ms ease;
+		background-color: #161616;
+		color: #fff;
+	}
+
+	.container a {
+		transition:
+			background-color 500ms ease,
+			color 500ms ease;
+		color: #fff;
 	}
 </style>

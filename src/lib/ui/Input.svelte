@@ -21,9 +21,9 @@
 		align-items: center;
 		gap: 0.625rem;
 		align-self: stretch;
-		border: 1px solid hsla(0, 0%, 100%, 1);
+		border: 1px solid currentColor;
 
-		color: #fff;
+		color: currentColor;
 
 		font-family: NeueBit;
 		font-size: 1rem;
