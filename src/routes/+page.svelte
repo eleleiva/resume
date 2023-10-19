@@ -218,12 +218,12 @@
 
 	a {
 		color: currentColor;
-		font-family: NeueBit;
+		font-family: NeueBit, sans-serif;
 	}
 
 	h1 {
 		text-align: center;
-		font-family: NeueBit;
+		font-family: NeueBit, sans-serif;
 		font-size: 6.75rem;
 		font-style: normal;
 		font-weight: 700;
@@ -237,7 +237,7 @@
 	h2 {
 		color: #4af626;
 		text-align: center;
-		font-family: Mondwest;
+		font-family: Mondwest, sans-serif;
 		font-size: 2rem;
 		font-style: normal;
 		font-weight: 400;
@@ -246,7 +246,7 @@
 	}
 
 	h3 {
-		font-family: Mondwest;
+		font-family: Mondwest, sans-serif;
 		font-size: 4rem;
 		font-style: normal;
 		font-weight: 400;
@@ -255,7 +255,7 @@
 	}
 
 	h4 {
-		font-family: NeueBit;
+		font-family: NeueBit, sans-serif;
 		font-size: 1.5rem;
 		font-style: normal;
 		font-weight: 700;
@@ -290,7 +290,7 @@
 
 	.jumbotron p {
 		text-align: center;
-		font-family: NeueBit;
+		font-family: NeueBit, sans-serif;
 		font-size: 1.25rem;
 		font-style: normal;
 		font-weight: 700;
@@ -318,7 +318,7 @@
 
 	.closing-tag-container p {
 		text-transform: uppercase;
-		font-family: NeueBit;
+		font-family: NeueBit, sans-serif;
 
 		text-align: center;
 		font-size: 1.25rem;
@@ -378,7 +378,7 @@
 	}
 
 	.about-me-header p {
-		font-family: NeueBit;
+		font-family: NeueBit, sans-serif;
 
 		text-align: center;
 		font-size: 1.25rem;
