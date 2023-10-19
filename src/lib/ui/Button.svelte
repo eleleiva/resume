@@ -25,7 +25,7 @@
 		font-weight: 700;
 		line-height: normal;
 		letter-spacing: 0.08rem;
-		font-family: NeueBit;
+		font-family: NeueBit, sans-serif;
 
 		text-transform: uppercase;
 

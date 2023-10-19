@@ -16,6 +16,14 @@
 		gap: 0.25rem;
 		color: currentColor;
 		transition: color 250ms;
+		font-size: 1.5rem;
+		text-decoration: none;
+
+		font-family: Inter;
+		font-size: 1.5rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: normal;
 	}
 
 	a:hover {
