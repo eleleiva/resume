@@ -20,12 +20,14 @@
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	};
 
-	let currentIntersectionRatio: number = 1;
+	let currentIntersectionRatio = 1;
 
 	const handleIntersections = (entries: IntersectionObserverEntry[]) => {
-		entries.forEach((entry) => {
-			currentIntersectionRatio = entry.intersectionRatio;
-		});
+		currentIntersectionRatio = entries.reduce((maxIntersection, entry) => {
+			if (maxIntersection > entry.intersectionRatio) return maxIntersection;
+
+			return entry.intersectionRatio;
+		}, 0);
 	};
 
 	const ANIMATION_SMOOTHNESS = 3;
@@ -169,26 +171,31 @@
 <style>
 	header,
 	footer {
-		min-height: 100dvh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		margin: auto;
 	}
 
+	section {
+		max-width: 100%;
+	}
+
 	main {
 		display: flex;
 		flex-direction: column;
 		gap: 12.5rem;
-		padding: 16rem 5rem 16rem 5rem;
+		padding: 16rem 0 16rem 0;
+		margin: 0 auto;
 	}
 
 	footer {
 		display: flex;
 		flex-direction: column;
 		gap: 16rem;
-		padding: 16rem 5rem 16rem 5rem;
+		padding: 16rem 0 16rem 0;
 		align-items: center;
+		margin: 0 auto;
 	}
 
 	nav {
@@ -196,7 +203,6 @@
 		flex-direction: row;
 		justify-content: space-between;
 		width: -webkit-fill-available;
-		padding: 2rem 5rem;
 		align-items: center;
 		max-width: 70rem;
 	}
@@ -225,6 +231,7 @@
 		letter-spacing: 0.50625rem;
 		margin: 0;
 		text-transform: uppercase;
+		max-width: 100%;
 	}
 
 	h2 {
@@ -244,6 +251,7 @@
 		font-style: normal;
 		font-weight: 400;
 		line-height: normal;
+		text-align: center;
 	}
 
 	h4 {
@@ -259,19 +267,25 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
-		width: 37.5rem;
+		width: 100%;
+		max-width: 37.5rem;
 	}
 
 	p {
 		max-width: 65ch;
 	}
 
+	img {
+		max-width: 100%;
+	}
+
 	.jumbotron {
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-		padding: 9rem 5rem 16rem 5rem;
+		padding: 9rem 0 16rem 0;
 		align-items: center;
+		max-width: 100%;
 	}
 
 	.jumbotron p {
@@ -292,6 +306,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 5rem;
+		width: 100%;
 		align-items: center;
 	}
 
@@ -327,12 +342,7 @@
 		display: grid;
 		gap: 5rem;
 		grid-template-columns: repeat(2, 1fr);
-	}
-
-	@media (max-width: 1440px) {
-		.projects-container {
-			grid-template-columns: 1fr;
-		}
+		max-width: 100%;
 	}
 
 	.project-header-container h4 {
@@ -405,7 +415,7 @@
 		display: flex;
 		gap: 6rem;
 		justify-content: center;
-
+		flex-wrap: wrap;
 		font-family: Inter;
 		font-size: 1rem;
 		font-style: normal;
@@ -419,6 +429,8 @@
 			color 500ms ease;
 		background-color: #161616;
 		color: #fff;
+
+		padding: 2rem 1rem;
 	}
 
 	.container a {
@@ -426,5 +438,29 @@
 			background-color 500ms ease,
 			color 500ms ease;
 		color: #fff;
+	}
+
+	@media (max-width: 1440px) {
+		.projects-container {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 780px) {
+		h1 {
+			font-size: 2.5rem;
+		}
+
+		h2 {
+			font-size: 1.125rem;
+		}
+
+		h3 {
+			font-size: 2.5rem;
+		}
+
+		h4 {
+			font-size: 1.25rem;
+		}
 	}
 </style>
