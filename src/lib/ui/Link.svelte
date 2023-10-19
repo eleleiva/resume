@@ -14,7 +14,7 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.25rem;
-		color: hsla(0, 0%, 9%, 1);
+		color: currentColor;
 		transition: color 250ms;
 	}
 
