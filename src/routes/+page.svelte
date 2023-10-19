@@ -20,7 +20,7 @@
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	};
 
-	let currentIntersectionRatio: number = 0;
+	let currentIntersectionRatio: number = 1;
 
 	const handleIntersections = (entries: IntersectionObserverEntry[]) => {
 		entries.forEach((entry) => {
