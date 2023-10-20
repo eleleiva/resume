@@ -5,13 +5,16 @@
 	import { buildThresholdList } from '$lib/utilities/animation';
 	import { clamp } from '$lib/utilities/math';
 	import { onMount } from 'svelte';
+	import type { ActionData } from './$types';
 
-	let form: HTMLFormElement;
+	export let form: ActionData;
+
+	let formRef: HTMLFormElement;
 	let header: HTMLElement;
 	let footer: HTMLElement;
 
 	const handleGetInTouchButton = () => {
-		form.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' });
+		formRef.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' });
 	};
 
 	const handleBackToTop = () => {
@@ -56,7 +59,7 @@
 >
 	<Header {handleGetInTouchButton} bind:header />
 	<Main />
-	<Footer bind:footer bind:form {handleBackToTop} />
+	<Footer bind:footer bind:form bind:formRef {handleBackToTop} />
 </div>
 
 <style>

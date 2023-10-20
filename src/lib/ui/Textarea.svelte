@@ -3,12 +3,14 @@
 
 	export let name: string;
 	export let label: string;
+	export let placeholder: string;
+	export let value: string = '';
 	export let required: boolean = false;
 	export let error: boolean = false;
 </script>
 
 <Label {label} {required} {name}>
-	<textarea class:error {name} />
+	<textarea class:error {name} {placeholder} {required}>{value}</textarea>
 </Label>
 
 <style>
@@ -30,6 +32,16 @@
 	textarea:focus-visible {
 		outline: 1px solid hsla(110, 92%, 56%, 1);
 		border-color: hsla(110, 92%, 56%, 1);
+	}
+
+	textarea::placeholder {
+		color: #b0b0b0;
+		font-family: NeueBit, sans-serif;
+		font-size: 1rem;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		letter-spacing: 0.08rem;
 	}
 
 	.error {

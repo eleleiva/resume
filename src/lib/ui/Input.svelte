@@ -7,10 +7,11 @@
 	export let label: string;
 	export let required: boolean = false;
 	export let error: boolean = false;
+	export let value: string = '';
 </script>
 
 <Label {label} {required} {name}>
-	<input class:error {name} {type} {placeholder} />
+	<input class:error {name} {type} {placeholder} {value} {required} />
 </Label>
 
 <style>
