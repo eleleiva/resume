@@ -50,31 +50,21 @@
 		</div>
 		<div class="projects-container">
 			<section class="project-container">
-				<img
-					width="358"
-					height="270"
-					src="/images/particles-screenshot.png"
-					alt="Particles screenshot"
-				/>
+				<img src="/images/particles-screenshot.png" alt="Particles screenshot" />
 				<div class="project-header-container">
 					<h4>Particles</h4>
 					<Link href="https://agents-model.lucaleiva.com">View project</Link>
 				</div>
 			</section>
 			<section class="project-container">
-				<img
-					width="358"
-					height="270"
-					src="/images/pathfinder-screenshot.png"
-					alt="Pathfinder screenshot"
-				/>
+				<img src="/images/pathfinder-screenshot.png" alt="Pathfinder screenshot" />
 				<div class="project-header-container">
 					<h4>Pathfinder</h4>
 					<Link href="https://pathfinder.lucaleiva.com">View project</Link>
 				</div>
 			</section>
 			<section class="project-container">
-				<img width="358" height="270" src="/images/typify-screenshot.png" alt="Typify screenshot" />
+				<img src="/images/typify-screenshot.png" alt="Typify screenshot" />
 				<div class="project-header-container">
 					<h4>Typify</h4>
 					<Link href="https://typify.lucaleiva.com">View project</Link>
@@ -124,6 +114,11 @@
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
+	}
+
+	.project-container img {
+		width: 600px;
+		height: 452.87px;
 	}
 
 	.about-me-header {
@@ -187,6 +182,13 @@
 	@media (max-width: 1440px) {
 		.projects-container {
 			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 780px) {
+		.project-container img {
+			width: 358px;
+			height: 270px;
 		}
 	}
 </style>
