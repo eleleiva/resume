@@ -11,7 +11,7 @@
 	</section>
 	<article class="about-me-container">
 		<section class="about-me-aside">
-			<img width="13.5rem" height="13.5rem" src="/images/illustration.png" alt="Pixelated avatar" />
+			<img width="216" height="216" src="/images/illustration.png" alt="Pixelated avatar" />
 			<div class="about-me-aside-links-container">
 				<Link href="https://www.linkedin.com/in/luca-leiva-gonzalez/">linkedin</Link>
 				<Link href="https://github.com/eleleiva/">github</Link>
@@ -51,8 +51,8 @@
 		<div class="projects-container">
 			<section class="project-container">
 				<img
-					width="22.5rem"
-					height="17rem"
+					width="358"
+					height="270"
 					src="/images/particles-screenshot.png"
 					alt="Particles screenshot"
 				/>
@@ -63,8 +63,8 @@
 			</section>
 			<section class="project-container">
 				<img
-					width="22.5rem"
-					height="17rem"
+					width="358"
+					height="270"
 					src="/images/pathfinder-screenshot.png"
 					alt="Pathfinder screenshot"
 				/>
@@ -74,12 +74,7 @@
 				</div>
 			</section>
 			<section class="project-container">
-				<img
-					width="22.5rem"
-					height="17rem"
-					src="/images/typify-screenshot.png"
-					alt="Typify screenshot"
-				/>
+				<img width="358" height="270" src="/images/typify-screenshot.png" alt="Typify screenshot" />
 				<div class="project-header-container">
 					<h4>Typify</h4>
 					<Link href="https://typify.lucaleiva.com">View project</Link>

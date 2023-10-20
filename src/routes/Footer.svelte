@@ -53,8 +53,8 @@
 	</section>
 	<section class="closing-tag-container">
 		<img
-			height="5rem"
-			width="5rem"
+			height="80"
+			width="80"
 			src="/images/computer.png"
 			alt="Pixelated computer with a smiley face on the screen"
 		/>
