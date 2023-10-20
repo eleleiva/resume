@@ -39,6 +39,7 @@
 		display: inline-flex;
 		align-items: center;
 		text-transform: uppercase;
+		gap: 0.5rem;
 	}
 
 	header {

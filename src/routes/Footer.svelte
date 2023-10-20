@@ -59,7 +59,7 @@
 			alt="Pixelated computer with a smiley face on the screen"
 		/>
 		<p>If you&apos;ve scrolled this far, thank you :)</p>
-		<Button onClick={handleBackToTop}>Back to top</Button>
+		<Button onClick={handleBackToTop}>Back to top<Icon name="arrowUp" /></Button>
 	</section>
 </footer>
 

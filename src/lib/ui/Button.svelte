@@ -28,6 +28,7 @@
 		font-family: NeueBit, sans-serif;
 
 		text-transform: uppercase;
+		cursor: pointer;
 
 		transition:
 			color 250ms,

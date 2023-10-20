@@ -57,7 +57,7 @@ nav {
 	justify-content: space-between;
 	width: -webkit-fill-available;
 	align-items: center;
-	max-width: 70rem;
+	max-width: 1280px;
 }
 
 nav a {
@@ -67,6 +67,7 @@ nav a {
 	line-height: normal;
 	letter-spacing: 0.075rem;
 	text-transform: uppercase;
+	text-decoration: none;
 }
 
 p {

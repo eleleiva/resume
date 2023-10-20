@@ -53,21 +53,21 @@
 				<img src="/images/particles-screenshot.png" alt="Particles screenshot" />
 				<div class="project-header-container">
 					<h4>Particles</h4>
-					<Link href="https://agents-model.lucaleiva.com">View project</Link>
+					<Link href="https://agent-models.lucaleiva.com/">View project</Link>
 				</div>
 			</section>
 			<section class="project-container">
 				<img src="/images/pathfinder-screenshot.png" alt="Pathfinder screenshot" />
 				<div class="project-header-container">
 					<h4>Pathfinder</h4>
-					<Link href="https://pathfinder.lucaleiva.com">View project</Link>
+					<Link href="https://path-finder.lucaleiva.com/">View project</Link>
 				</div>
 			</section>
 			<section class="project-container">
 				<img src="/images/typify-screenshot.png" alt="Typify screenshot" />
 				<div class="project-header-container">
 					<h4>Typify</h4>
-					<Link href="https://typify.lucaleiva.com">View project</Link>
+					<Link href="https://typify.lucaleiva.com/">View project</Link>
 				</div>
 			</section>
 		</div>
@@ -179,7 +179,7 @@
 		flex-wrap: wrap;
 	}
 
-	@media (max-width: 1440px) {
+	@media (max-width: 1280px) {
 		.projects-container {
 			grid-template-columns: 1fr;
 		}
@@ -189,6 +189,10 @@
 		.project-container img {
 			width: 358px;
 			height: 270px;
+		}
+
+		.about-me-title {
+			justify-content: center;
 		}
 	}
 </style>

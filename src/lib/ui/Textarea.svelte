@@ -27,6 +27,7 @@
 		gap: 0.625rem;
 		align-self: stretch;
 		border: 1px solid currentColor;
+		font-family: NeueBit, sans-serif;
 	}
 
 	textarea:focus-visible {

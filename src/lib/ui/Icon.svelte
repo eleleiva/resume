@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Arrow from '$lib/icons/Arrow.svelte';
+	import ArrowUp from '$lib/icons/ArrowUp.svelte';
 	import Box from '$lib/icons/Box.svelte';
 	import Cat from '$lib/icons/Cat.svelte';
 	import CupOfTea from '$lib/icons/CupOfTea.svelte';
@@ -30,6 +31,10 @@
 		arrow: {
 			Icon: Arrow,
 			name: 'arrow'
+		},
+		arrowUp: {
+			Icon: ArrowUp,
+			name: 'arrowUp'
 		},
 		box: {
 			Icon: Box,
