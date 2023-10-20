@@ -4,7 +4,7 @@
 	export let href: string;
 </script>
 
-<a {href}>
+<a {href} target="_blank" rel="noopener noreferrer">
 	<slot />
 	<Icon class="icon" name="arrow" />
 </a>
