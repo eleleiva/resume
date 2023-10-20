@@ -22,6 +22,10 @@
 	font-display: swap;
 }
 
+html {
+	background-color: #161616;
+}
+
 body {
 	font-family: 'Inter';
 	margin: 0;
