@@ -52,7 +52,12 @@
 		</form>
 	</section>
 	<section class="closing-tag-container">
-		<img src="/images/computer.png" alt="Pixelated computer with a smiley face on the screen" />
+		<img
+			height="5rem"
+			width="5rem"
+			src="/images/computer.png"
+			alt="Pixelated computer with a smiley face on the screen"
+		/>
 		<p>If you&apos;ve scrolled this far, thank you :)</p>
 		<Button onClick={handleBackToTop}>Back to top</Button>
 	</section>
