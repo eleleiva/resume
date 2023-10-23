@@ -43,7 +43,7 @@
 	const colorTransitionClamp = (currentValue: number) => {
 		return clamp(currentValue, 9, 100);
 	};
-	const ANIMATION_SMOOTHNESS = 1;
+	const ANIMATION_SMOOTHNESS = 2;
 	$: saturationLevelPercent = colorTransitionClamp(
 		100 - currentIntersectionRatio * ANIMATION_SMOOTHNESS
 	);
