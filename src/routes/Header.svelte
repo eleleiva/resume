@@ -14,7 +14,7 @@
 	<section class="jumbotron">
 		<p>Hello there<Icon name="cat" /></p>
 		<h1>My name is Luca,<br /> I&apos;m a Full-Stack web <br /> developer</h1>
-		<h2>Inquisitive, tech-savvy but above all, humane</h2>
+		<h2>Inquisitive, tech-savvy but above all, pragmatic</h2>
 	</section>
 </header>
 
