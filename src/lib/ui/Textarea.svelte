@@ -23,7 +23,7 @@
 		font-size: 1rem;
 		letter-spacing: 0.08rem;
 		font-weight: 700;
-		line-height: normal;
+		line-height: 1rem;
 		gap: 0.625rem;
 		align-self: stretch;
 		border: 1px solid currentColor;

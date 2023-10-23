@@ -12,6 +12,7 @@
 	let formRef: HTMLFormElement;
 	let header: HTMLElement;
 	let footer: HTMLElement;
+	let main: HTMLElement;
 
 	const handleGetInTouchButton = () => {
 		formRef.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' });
@@ -21,25 +22,33 @@
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	};
 
-	let currentIntersectionRatio = 1;
+	let currentIntersectionRatio = 0;
 
 	const handleIntersections = (entries: IntersectionObserverEntry[]) => {
 		currentIntersectionRatio = entries.reduce((maxIntersection, entry) => {
-			if (maxIntersection > entry.intersectionRatio) return maxIntersection;
+			const elementRect = entry.boundingClientRect;
+			const viewportHeight = window.innerHeight;
 
-			return entry.intersectionRatio;
+			let visibleHeight =
+				Math.min(elementRect.bottom, viewportHeight) - Math.max(elementRect.top, 0);
+
+			let percentageOccupied = (visibleHeight / viewportHeight) * 100;
+
+			if (maxIntersection > percentageOccupied) return maxIntersection;
+
+			return percentageOccupied;
 		}, 0);
 	};
 
 	const colorTransitionClamp = (currentValue: number) => {
 		return clamp(currentValue, 9, 100);
 	};
-	const ANIMATION_SMOOTHNESS = 2;
+	const ANIMATION_SMOOTHNESS = 1;
 	$: saturationLevelPercent = colorTransitionClamp(
-		currentIntersectionRatio * ANIMATION_SMOOTHNESS * 100
+		100 - currentIntersectionRatio * ANIMATION_SMOOTHNESS
 	);
 	$: invertedSaturationLevelPercent = colorTransitionClamp(
-		100 - currentIntersectionRatio * ANIMATION_SMOOTHNESS * 100
+		currentIntersectionRatio * ANIMATION_SMOOTHNESS
 	);
 
 	onMount(() => {
@@ -47,8 +56,7 @@
 			threshold: buildThresholdList()
 		});
 
-		observer.observe(header);
-		observer.observe(footer);
+		observer.observe(main);
 	});
 </script>
 
@@ -58,7 +66,7 @@
 	style:color={`hsla(0, 0%, ${saturationLevelPercent}%, 1)`}
 >
 	<Header {handleGetInTouchButton} bind:header />
-	<Main />
+	<Main bind:main />
 	<Footer bind:footer bind:form bind:formRef {handleBackToTop} />
 </div>
 

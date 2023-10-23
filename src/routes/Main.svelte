@@ -1,9 +1,11 @@
 <script lang="ts">
 	import Icon from '$lib/ui/Icon.svelte';
 	import Link from '$lib/ui/Link.svelte';
+
+	export let main;
 </script>
 
-<main>
+<main bind:this={main}>
 	<section class="about-me-header">
 		<Icon name="mapMarker" />
 		<h3>Born and based in Montevideo, Uruguay</h3>
