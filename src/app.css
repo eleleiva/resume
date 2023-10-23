@@ -1,0 +1,165 @@
+@font-face {
+	font-family: 'Inter';
+	src: url('https://fonts.googleapis.com/css2?family=Inter&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+		format('woff');
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Mondwest;
+	font-weight: 400;
+	src: url('/fonts/PPMondwest-Regular.otf');
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: NeueBit;
+	font-weight: 700;
+	src: url('/fonts/PPNeueBit-Bold.otf');
+	font-style: normal;
+	font-display: swap;
+}
+
+html {
+	background-color: #161616;
+}
+
+body {
+	font-family: 'Inter';
+	margin: 0;
+}
+
+h1 {
+	text-align: center;
+	font-family: NeueBit, sans-serif;
+	font-size: 6.75rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.50625rem;
+	margin: 0;
+	text-transform: uppercase;
+	max-width: 100%;
+}
+
+h2 {
+	color: #4af626;
+	text-align: center;
+	font-family: Mondwest, sans-serif;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin: 0;
+}
+
+nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: -webkit-fill-available;
+	align-items: center;
+	max-width: 1280px;
+}
+
+nav a {
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.075rem;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+p {
+	font-family: Inter;
+	max-width: 65ch;
+	margin: 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+a {
+	color: currentColor;
+	font-family: NeueBit, sans-serif;
+}
+
+h3 {
+	font-family: Mondwest, sans-serif;
+	font-size: 4rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	text-align: center;
+	margin: 0;
+}
+
+h4 {
+	font-family: NeueBit, sans-serif;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.12rem;
+	margin: 0;
+}
+
+header,
+footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: auto;
+}
+
+section {
+	max-width: 100%;
+}
+
+main {
+	display: flex;
+	flex-direction: column;
+	gap: 12.5rem;
+	padding: 16rem 0 16rem 0;
+	margin: 0 auto;
+}
+
+footer {
+	display: flex;
+	flex-direction: column;
+	gap: 16rem;
+	padding: 16rem 0 16rem 0;
+	align-items: center;
+	margin: 0 auto;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	width: 100%;
+	max-width: 37.5rem;
+}
+
+@media (max-width: 780px) {
+	h1 {
+		font-size: 2.5rem;
+	}
+
+	h2 {
+		font-size: 1.125rem;
+	}
+
+	h3 {
+		font-size: 2.5rem;
+	}
+
+	h4 {
+		font-size: 1.25rem;
+	}
+}
