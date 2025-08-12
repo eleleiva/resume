@@ -59,6 +59,7 @@ nav {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+  width: 100%;
 	width: -webkit-fill-available;
 	align-items: center;
 	max-width: 1280px;
