@@ -39,8 +39,8 @@ importers:
         specifier: ^3.14.0
         version: 3.14.0(eslint@9.39.2)(svelte@5.53.5)
       nodemailer:
-        specifier: ^7.0.13
-        version: 7.0.13
+        specifier: ^8.0.4
+        version: 8.0.4
       prettier:
         specifier: ^3.8.1
         version: 3.8.1
@@ -1169,8 +1169,8 @@ packages:
     resolution: {integrity: sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==}
     hasBin: true
 
-  nodemailer@7.0.13:
-    resolution: {integrity: sha512-PNDFSJdP+KFgdsG3ZzMXCgquO7I6McjY2vlqILjtJd0hy8wEvtugS9xKRF2NWlPNGxvLCXlTNIae4serI7dinw==}
+  nodemailer@8.0.4:
+    resolution: {integrity: sha512-k+jf6N8PfQJ0Fe8ZhJlgqU5qJU44Lpvp2yvidH3vp1lPnVQMgi4yEEMPXg5eJS1gFIJTVq1NHBk7Ia9ARdSBdQ==}
     engines: {node: '>=6.0.0'}
 
   nopt@8.1.0:
@@ -2407,7 +2407,7 @@ snapshots:
 
   node-gyp-build@4.8.4: {}
 
-  nodemailer@7.0.13: {}
+  nodemailer@8.0.4: {}
 
   nopt@8.1.0:
     dependencies:

@@ -22,7 +22,7 @@
 		"eslint": "^9.39.2",
 		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.14.0",
-		"nodemailer": "^7.0.13",
+		"nodemailer": "^8.0.4",
 		"prettier": "^3.8.1",
 		"prettier-plugin-svelte": "^3.4.1",
 		"svelte": "^5.53.5",
