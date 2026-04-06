@@ -1,6 +1,8 @@
 <script lang="ts">
 	import Icon from '$lib/ui/Icon.svelte';
 	import Link from '$lib/ui/Link.svelte';
+	import Project from '$lib/ui/Project.svelte';
+	import { projects } from '$lib/utilities/constants';
 
 	export let main;
 </script>
@@ -48,30 +50,13 @@
 	<article class="projects-section-container">
 		<div class="projects-header-container">
 			<Icon name="box" />
-			<h3>My side projects</h3>
+			<h3>My experiments</h3>
+			<h4>Ideas I've built and explored</h4>
 		</div>
 		<div class="projects-container">
-			<section class="project-container">
-				<img src="/images/particles-screenshot.png" alt="Particles screenshot" />
-				<div class="project-header-container">
-					<h4>Particles</h4>
-					<Link href="https://agent-models.lucaleiva.com/">View project</Link>
-				</div>
-			</section>
-			<section class="project-container">
-				<img src="/images/pathfinder-screenshot.png" alt="Pathfinder screenshot" />
-				<div class="project-header-container">
-					<h4>Pathfinder</h4>
-					<Link href="https://path-finder.lucaleiva.com/">View project</Link>
-				</div>
-			</section>
-			<section class="project-container">
-				<img src="/images/typify-screenshot.png" alt="Typify screenshot" />
-				<div class="project-header-container">
-					<h4>Typify</h4>
-					<Link href="https://typify.lucaleiva.com/">View project</Link>
-				</div>
-			</section>
+			{#each projects as project}
+				<Project {...project} />
+			{/each}
 		</div>
 	</article>
 </main>
@@ -80,21 +65,8 @@
 	.projects-container {
 		display: grid;
 		gap: 4rem 5rem;
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
 		max-width: 100%;
-	}
-
-	.project-header-container h4 {
-		font-family: Inter;
-		font-size: 2rem;
-		font-style: normal;
-		font-weight: 400;
-		line-height: normal;
-	}
-
-	.project-header-container {
-		display: flex;
-		justify-content: space-between;
 	}
 
 	.projects-section-container {
@@ -112,15 +84,9 @@
 		align-items: center;
 	}
 
-	.project-container {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-
-	.project-container img {
-		width: 600px;
-		height: 452.87px;
+	.projects-header-container h4 {
+		font-family: NeueBit;
+		text-transform: uppercase;
 	}
 
 	.about-me-header {
@@ -183,18 +149,18 @@
 
 	@media (max-width: 1280px) {
 		.projects-container {
-			grid-template-columns: 1fr;
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 
 	@media (max-width: 780px) {
-		.project-container img {
-			width: 358px;
-			height: 270px;
-		}
-
 		.about-me-title {
 			justify-content: center;
+		}
+
+		.projects-container {
+			grid-template-columns: 1fr;
+			max-width: 65ch;
 		}
 	}
 </style>
