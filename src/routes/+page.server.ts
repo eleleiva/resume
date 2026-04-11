@@ -1,11 +1,11 @@
-import nodemailer from 'nodemailer';
-import type { Actions } from './$types';
 import { fail } from '@sveltejs/kit';
+import nodemailer from 'nodemailer';
 import {
 	CONTACT_EMAIL_RECIPIENT,
-	FORWARD_EMAIL_USER,
-	FORWARD_EMAIL_PASSWORD
+	FORWARD_EMAIL_PASSWORD,
+	FORWARD_EMAIL_USER
 } from '$env/static/private';
+import type { Actions } from './$types';
 
 const transporter = nodemailer.createTransport({
 	host: 'smtp-relay.sendinblue.com',
@@ -42,7 +42,7 @@ async function sendEmail(request: Request) {
 		await transporter.sendMail(email);
 
 		return { success: true };
-	} catch (error) {
+	} catch {
 		return fail(500);
 	}
 }

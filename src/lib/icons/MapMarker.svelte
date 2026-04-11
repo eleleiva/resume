@@ -1,4 +1,12 @@
-<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg
+	width="32"
+	height="32"
+	viewBox="0 0 32 32"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+	aria-hidden="true"
+	focusable="false"
+>
 	<g
 		id="&#208;&#147;&#208;&#181;&#208;&#190;&#208;&#187;&#208;&#190;&#208;&#186;&#208;&#176;&#209;&#134;&#208;&#184;&#209;&#143;_Geolocation"
 	>

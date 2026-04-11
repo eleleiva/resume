@@ -1,4 +1,12 @@
-<svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg
+	width="32"
+	height="33"
+	viewBox="0 0 32 33"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+	aria-hidden="true"
+	focusable="false"
+>
 	<g
 		id="streamlinehq-food-drink-tea-food-drink-48-ico_N4Kvx7BRwljPckUl"
 		clip-path="url(#clip0_215_270)"
