@@ -15,32 +15,60 @@
 		align-items: center;
 		gap: 0.25rem;
 		color: currentColor;
-		transition: color 250ms;
-		font-size: 1.5rem;
+		transition: color 220ms steps(3, end);
 		text-decoration: none;
 
-		font-family: Inter;
+		font-family:
+			'Inter',
+			system-ui,
+			-apple-system,
+			BlinkMacSystemFont,
+			'Segoe UI',
+			sans-serif;
 		font-size: 1.5rem;
 		font-style: normal;
-		font-weight: 400;
+		font-weight: 500;
 		line-height: normal;
-	}
-
-	a:hover {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.25rem;
-		color: hsla(240, 100%, 47%, 1);
-	}
-
-	a:hover :global(.icon) {
-		color: hsla(240, 100%, 47%, 1);
-		transform: rotate(-90deg);
 	}
 
 	a :global(.icon) {
 		transition:
-			transform 250ms,
-			color 250ms;
+			transform 220ms steps(3, end),
+			color 220ms steps(3, end);
+	}
+
+	a:hover,
+	a:focus-visible {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.25rem;
+		color: hsla(240, 100%, 47%, 1);
+		outline: none;
+	}
+
+	a:hover :global(.icon),
+	a:focus-visible :global(.icon) {
+		color: hsla(240, 100%, 47%, 1);
+		transform: translateX(4px) rotate(-90deg);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		a :global(.icon) {
+			transition: color 220ms steps(3, end);
+		}
+
+		a:hover :global(.icon),
+		a:focus-visible :global(.icon) {
+			transform: none;
+		}
+	}
+
+	:global(html[data-animations='off']) a :global(.icon) {
+		transition: color 220ms steps(3, end);
+	}
+
+	:global(html[data-animations='off']) a:hover :global(.icon),
+	:global(html[data-animations='off']) a:focus-visible :global(.icon) {
+		transform: none;
 	}
 </style>

@@ -1,4 +1,12 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg
+	width="24"
+	height="24"
+	viewBox="0 0 24 24"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+	aria-hidden="true"
+	focusable="false"
+>
 	<g
 		id="&#208;&#160;&#208;&#176;&#208;&#180;&#208;&#190;&#209;&#129;&#209;&#130;&#209;&#140;_Smile"
 	>

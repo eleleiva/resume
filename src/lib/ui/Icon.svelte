@@ -8,6 +8,7 @@
 	import MapMarker from '$lib/icons/MapMarker.svelte';
 
 	let class_name = '';
+
 	export { class_name as class };
 	export let name: keyof typeof Icons;
 

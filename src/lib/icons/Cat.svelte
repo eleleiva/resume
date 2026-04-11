@@ -1,4 +1,12 @@
-<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg
+	width="24"
+	height="24"
+	viewBox="0 0 24 24"
+	fill="none"
+	xmlns="http://www.w3.org/2000/svg"
+	aria-hidden="true"
+	focusable="false"
+>
 	<g id="&#208;&#156;&#208;&#190;&#209;&#128;&#208;&#180;&#208;&#176;">
 		<g id="Intersect">
 			<path d="M8.03845 12.6923V14.0769H9.42306V12.6923H8.03845Z" fill="currentColor" />

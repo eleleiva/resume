@@ -4,6 +4,8 @@
 	viewBox="0 0 24 25"
 	xmlns="http://www.w3.org/2000/svg"
 	fill="currentColor"
+	aria-hidden="true"
+	focusable="false"
 >
 	<g id="arrow-up">
 		<path

@@ -49,7 +49,7 @@
 
 	.submit-container p {
 		color: #4af626;
-		font-family: NeueBit;
+		font-family: NeueBit, sans-serif;
 		font-size: 1.25rem;
 		font-style: normal;
 		font-weight: 700;
