@@ -1,37 +1,42 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import type { ActionData } from '../../routes/$types';
 	import Button from './Button.svelte';
 	import Input from './Input.svelte';
 	import Textarea from './Textarea.svelte';
 
-	export let formRef: HTMLFormElement | null = null;
-	export let form: { from: string; subject: string; message: string; success?: boolean } | null =
-		null;
+	let {
+		formRef = $bindable(),
+		form
+	}: {
+		formRef: HTMLFormElement | undefined;
+		form: ActionData;
+	} = $props();
 </script>
 
 <form bind:this={formRef} method="post" use:enhance>
 	<Input
 		name="from"
 		type="email"
+		error={!!form?.errors?.properties?.from?.errors?.length}
 		required
 		label="From"
 		placeholder="FRODOBAGGINS@GMAIL.COM"
-		value={form?.from?.toString() ?? ''}
 	/>
 	<Input
 		name="subject"
 		type="text"
+		error={!!form?.errors?.properties?.subject?.errors?.length}
 		required
 		label="Subject"
 		placeholder="GIVE IT A CATCHY TITLE"
-		value={form?.subject?.toString() ?? ''}
 	/>
 	<Textarea
 		name="message"
 		label="Message"
+		error={!!form?.errors?.properties?.message?.errors?.length}
 		placeholder="PUT YOUR THOUGHTS HERE"
 		required
-		value={form?.message?.toString() ?? ''}
 	/>
 	<div class="submit-container">
 		<Button type="submit">Send</Button>

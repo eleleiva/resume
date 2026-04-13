@@ -3,17 +3,31 @@
 	import Footer from './Footer.svelte';
 	import Header from './Header.svelte';
 	import Main from './Main.svelte';
+	import type { PageProps } from './$types';
+	import * as Tone from 'tone';
+
+	import {
+		CRT_SOUND_PROFILE_LABELS,
+		CRT_SOUND_PROFILE_ORDER,
+		startCRTAmbience,
+		stopCRTAmbience,
+		triggerCRTPulseSound,
+		type CRTPulseVariant,
+		type CRTSoundProfile
+	} from '$lib/utilities/sound';
 
 	const ANIMATIONS_STORAGE_KEY = 'resume:animations-disabled';
 
-	let crtReady = false;
-	let crtPulseActive = false;
-	let contentReady = false;
-	let animationsDisabled = false;
-	let hasMounted = false;
-	type CRTPulseVariant = 'single' | 'double' | 'wobble';
-	let crtPulseVariant: CRTPulseVariant = 'single';
-	let formRef: HTMLDivElement;
+	let crtReady = $state(false);
+	let crtPulseActive = $state(false);
+	let contentReady = $state(false);
+	let animationsDisabled = $state(false);
+	let hasMounted = $state(false);
+	let crtPulseVariant = $state<CRTPulseVariant>('single');
+	let soundEnabled = $state(false);
+	let soundProfile = $state<CRTSoundProfile>(CRT_SOUND_PROFILE_ORDER[1]);
+	let { form }: PageProps = $props();
+	let formRef = $state<HTMLFormElement>();
 
 	const userPrefersReducedMotion = () => {
 		if (typeof window === 'undefined') return false;
@@ -24,7 +38,7 @@
 	const shouldReduceMotion = () => animationsDisabled || userPrefersReducedMotion();
 
 	const handleGetInTouchButton = () => {
-		formRef.scrollIntoView({
+		formRef?.scrollIntoView?.({
 			behavior: shouldReduceMotion() ? 'auto' : 'smooth',
 			block: 'center',
 			inline: 'start'
@@ -59,8 +73,16 @@
 		setAnimationsDisabled(!animationsDisabled);
 	};
 
-	$: isDoublePulse = crtPulseVariant === 'double';
-	$: isWobblePulse = crtPulseVariant === 'wobble';
+	const getNextSoundProfile = (profile: CRTSoundProfile): CRTSoundProfile => {
+		const currentIndex = CRT_SOUND_PROFILE_ORDER.indexOf(profile);
+		const nextIndex = (currentIndex + 1) % CRT_SOUND_PROFILE_ORDER.length;
+
+		return CRT_SOUND_PROFILE_ORDER[nextIndex];
+	};
+
+	let isDoublePulse = $derived(crtPulseVariant === 'double');
+	let isWobblePulse = $derived(crtPulseVariant === 'wobble');
+	let soundProfileLabel = $derived(CRT_SOUND_PROFILE_LABELS[soundProfile]);
 
 	const getRandomPulseVariant = (): CRTPulseVariant => {
 		const randomValue = Math.random();
@@ -84,6 +106,10 @@
 		crtPulseVariant = getRandomPulseVariant();
 		crtPulseActive = true;
 
+		if (soundEnabled) {
+			triggerCRTPulseSound(crtPulseVariant, soundProfile);
+		}
+
 		window.clearTimeout(pulseTimeout);
 		pulseTimeout = window.setTimeout(
 			() => {
@@ -102,16 +128,48 @@
 		}, nextDelay);
 	};
 
-	$: if (hasMounted) {
-		const reduceMotion = animationsDisabled || userPrefersReducedMotion();
+	$effect(() => {
+		if (hasMounted) {
+			const reduceMotion = animationsDisabled || userPrefersReducedMotion();
 
-		clearPulseTimers();
-		crtPulseActive = false;
+			clearPulseTimers();
+			crtPulseActive = false;
 
-		if (!reduceMotion) {
-			scheduleNextPulse();
+			if (!reduceMotion) {
+				scheduleNextPulse();
+			}
 		}
-	}
+	});
+
+	$effect(() => {
+		if (!hasMounted || !soundEnabled) {
+			stopCRTAmbience();
+			return;
+		}
+
+		startCRTAmbience(soundProfile);
+
+		return () => {
+			stopCRTAmbience();
+		};
+	});
+
+	const handleSoundToggle = async () => {
+		await Tone.start();
+
+		soundEnabled = !soundEnabled;
+	};
+
+	const handleSoundProfileToggle = async () => {
+		const nextSoundProfile = getNextSoundProfile(soundProfile);
+
+		soundProfile = nextSoundProfile;
+
+		if (!soundEnabled) return;
+
+		await Tone.start();
+		triggerCRTPulseSound('single', nextSoundProfile);
+	};
 
 	onMount(() => {
 		setAnimationsDisabled(localStorage.getItem(ANIMATIONS_STORAGE_KEY) === 'off', false);
@@ -130,6 +188,7 @@
 			delete document.documentElement.dataset.animations;
 			window.clearTimeout(contentReadyTimeout);
 			clearPulseTimers();
+			stopCRTAmbience();
 		};
 	});
 </script>
@@ -148,7 +207,7 @@
 	<div class="screen-content">
 		<Header {handleGetInTouchButton} />
 		<Main />
-		<Footer bind:formRef {handleBackToTop} />
+		<Footer bind:formRef {form} {handleBackToTop} />
 	</div>
 
 	<div
@@ -166,20 +225,40 @@
 </div>
 
 <div class="crt-readout" class:content-ready={contentReady}>
-	<span class="readout-pill readout-pill-live" aria-hidden="true">
-		<span class="readout-led"></span>
-		Signal lock
-	</span>
-	<span class="readout-pill" aria-hidden="true">Input: web</span>
-	<span class="readout-pill" aria-hidden="true">Montevideo UTC-3</span>
 	<button
 		type="button"
 		class="readout-toggle-button"
-		aria-pressed={animationsDisabled}
-		on:click={handleAnimationsToggle}
+		class:readout-toggle-enabled={soundEnabled}
+		class:readout-toggle-disabled={!soundEnabled}
+		aria-pressed={soundEnabled}
+		onclick={handleSoundToggle}
 	>
+		<span class="readout-led"></span>
+		Audio
+	</button>
+	<button
+		type="button"
+		class="readout-toggle-button"
+		class:readout-toggle-enabled={soundEnabled}
+		class:readout-toggle-disabled={!soundEnabled}
+		onclick={handleSoundProfileToggle}
+	>
+		<span class="readout-led"></span>
+		Tone: {soundProfileLabel}
+	</button>
+	<button
+		type="button"
+		class="readout-toggle-button"
+		class:readout-toggle-enabled={!animationsDisabled}
+		class:readout-toggle-disabled={animationsDisabled}
+		aria-pressed={!animationsDisabled}
+		onclick={handleAnimationsToggle}
+	>
+		<span class="readout-led"></span>
 		{animationsDisabled ? 'Enable animations' : 'Disable animations'}
 	</button>
+	<span class="readout-pill" aria-hidden="true">Input: web</span>
+	<span class="readout-pill" aria-hidden="true">Montevideo UTC-3</span>
 </div>
 
 <style>
@@ -197,6 +276,7 @@
 	.screen-content {
 		position: relative;
 		z-index: 1;
+		padding: 0 1rem 0 1rem;
 	}
 
 	.crt-readout {
@@ -237,16 +317,12 @@
 		backdrop-filter: blur(2px);
 	}
 
-	.readout-pill-live {
-		color: #aaff9b;
-		border-color: rgba(104, 254, 101, 0.34);
-	}
-
 	.readout-toggle-button {
 		pointer-events: auto;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
+		gap: 0.35rem;
 		padding: 0.25rem 0.5rem;
 		border: 1px solid rgba(255, 255, 255, 0.22);
 		background: rgba(10, 10, 10, 0.55);
@@ -261,27 +337,53 @@
 		transition:
 			border-color 180ms steps(3, end),
 			color 180ms steps(3, end),
-			background-color 180ms steps(3, end);
+			background-color 180ms steps(3, end),
+			box-shadow 180ms steps(3, end);
+	}
+
+	.readout-toggle-enabled {
+		color: #aaff9b;
+		border-color: rgba(104, 254, 101, 0.34);
+	}
+
+	.readout-toggle-disabled {
+		color: #ff8b87;
+		border-color: rgba(254, 104, 101, 0.34);
 	}
 
 	.readout-toggle-button:hover,
-	.readout-toggle-button:focus-visible,
-	.readout-toggle-button[aria-pressed='true'] {
-		border-color: rgba(104, 254, 101, 0.34);
-		color: #aaff9b;
+	.readout-toggle-button:focus-visible {
+		background: rgba(20, 20, 20, 0.68);
+	}
+
+	.readout-toggle-enabled:hover,
+	.readout-toggle-enabled:focus-visible {
+		box-shadow: 0 0 0 1px rgba(104, 254, 101, 0.14);
+	}
+
+	.readout-toggle-disabled:hover,
+	.readout-toggle-disabled:focus-visible {
+		box-shadow: 0 0 0 1px rgba(254, 104, 101, 0.14);
 	}
 
 	.readout-toggle-button:focus-visible {
 		outline: none;
-		background: rgba(20, 20, 20, 0.68);
 	}
 
 	.readout-led {
 		width: 0.45rem;
 		height: 0.45rem;
+		flex-shrink: 0;
 		background: currentColor;
-		box-shadow: 0 0 6px rgba(104, 254, 101, 0.55);
 		animation: readout-led-blink 3.4s steps(2, end) infinite;
+	}
+
+	.readout-toggle-enabled .readout-led {
+		box-shadow: 0 0 6px rgba(104, 254, 101, 0.55);
+	}
+
+	.readout-toggle-disabled .readout-led {
+		box-shadow: 0 0 6px rgba(254, 104, 101, 0.55);
 	}
 
 	@keyframes readout-led-blink {

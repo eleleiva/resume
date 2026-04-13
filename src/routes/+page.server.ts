@@ -1,54 +1,45 @@
 import { fail } from '@sveltejs/kit';
-import nodemailer from 'nodemailer';
-import {
-	CONTACT_EMAIL_RECIPIENT,
-	FORWARD_EMAIL_PASSWORD,
-	FORWARD_EMAIL_USER
-} from '$env/static/private';
 import type { Actions } from './$types';
+import { Resend } from 'resend';
+import { z } from 'zod';
+import { RESEND_API_KEY, CONTACT_EMAIL_RECIPIENT, CONTACT_EMAIL_SENDER } from '$env/static/private';
 
-const transporter = nodemailer.createTransport({
-	host: 'smtp-relay.sendinblue.com',
-	port: 587,
-	auth: {
-		user: FORWARD_EMAIL_USER,
-		pass: FORWARD_EMAIL_PASSWORD
-	}
+const resend = new Resend(RESEND_API_KEY);
+
+const contactSchema = z.object({
+	subject: z.string().min(2),
+	from: z.email(),
+	message: z.string().min(10)
 });
 
-async function sendEmail(request: Request) {
-	try {
-		const data = await request.formData();
-		const from = data.get('from');
-		const subject = data.get('subject');
-		const message = data.get('message');
-
-		switch (true) {
-			case !from:
-				return fail(400, { from, missing: true });
-			case !subject:
-				return fail(400, { subject, missing: true });
-			case !message:
-				return fail(400, { message, missing: true });
-		}
-
-		const email = {
-			to: CONTACT_EMAIL_RECIPIENT,
-			from: CONTACT_EMAIL_RECIPIENT,
-			text: `FROM: ${from} ==== ${message}`,
-			subject: subject as string
-		};
-
-		await transporter.sendMail(email);
-
-		return { success: true };
-	} catch {
-		return fail(500);
-	}
-}
+const contactFormSender =
+	process.env.NODE_ENV === 'production' ? `<${CONTACT_EMAIL_SENDER}>` : '<onboarding@resend.dev>';
 
 export const actions = {
 	default: async ({ request }) => {
-		return sendEmail(request);
+		const formData = Object.fromEntries(await request.formData());
+
+		const result = contactSchema.safeParse(formData);
+
+		if (!result.success) {
+			console.log('z.treeifyError(result.error): ', z.treeifyError(result.error));
+
+			return fail(400, { errors: z.treeifyError(result.error) });
+		}
+
+		const { subject, from, message } = result.data;
+
+		try {
+			await resend.emails.send({
+				from: `Contact Form ${contactFormSender}`,
+				to: CONTACT_EMAIL_RECIPIENT,
+				subject: subject,
+				text: `From: ${from}\n\n${message}`
+			});
+
+			return { success: true };
+		} catch {
+			return fail(500, { message: 'Could not send email' });
+		}
 	}
 } satisfies Actions;
