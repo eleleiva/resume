@@ -59,7 +59,7 @@
 		<h3>Born and based in Montevideo, Uruguay</h3>
 		<p>But open for gigs all around the globe</p>
 	</section>
-	<article class="about-me-container" data-reveal style:--reveal-delay={'80ms'}>
+	<article class="about-me-container" data-reveal style:--reveal-delay="80ms">
 		<section class="about-me-aside">
 			<img width="216" height="216" src="/images/illustration.png" alt="Pixelated avatar" />
 			<div class="about-me-aside-links-container">
@@ -105,7 +105,7 @@
 			<h4>Ideas I've built and explored</h4>
 		</div>
 		<div class="projects-container">
-			{#each projects as project, index}
+			{#each projects as project, index (project.title)}
 				<Project
 					title={project.title}
 					description={project.description}

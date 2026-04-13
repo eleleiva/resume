@@ -2,13 +2,21 @@
 	import { onMount } from 'svelte';
 	import Button from '$lib/ui/Button.svelte';
 	import Icon from '$lib/ui/Icon.svelte';
-	// import MailForm from '$lib/ui/MailForm.svelte';
+	import MailForm from '$lib/ui/MailForm.svelte';
+	import type { ActionData } from './$types';
 
-	export let formRef: HTMLDivElement;
-	export let handleBackToTop: () => void;
-	let closingTag: HTMLElement;
-	let ctaVisible = false;
-	let closingTagVisible = false;
+	let {
+		formRef = $bindable(),
+		form,
+		handleBackToTop
+	}: {
+		formRef: HTMLFormElement | undefined;
+		form: ActionData;
+		handleBackToTop: () => void;
+	} = $props();
+	let closingTag = $state<HTMLElement>();
+	let ctaVisible = $state(false);
+	let closingTagVisible = $state(false);
 
 	onMount(() => {
 		const observer = new IntersectionObserver(
@@ -34,8 +42,8 @@
 			}
 		);
 
-		observer.observe(formRef);
-		observer.observe(closingTag);
+		if (formRef) observer.observe(formRef);
+		if (closingTag) observer.observe(closingTag);
 
 		return () => {
 			observer.disconnect();
@@ -45,12 +53,15 @@
 
 <footer>
 	<section class="form-container">
-		<div bind:this={formRef} class:is-visible={ctaVisible} class="call-to-action-container">
+		<div class:is-visible={ctaVisible} class="call-to-action-container">
 			<span class="cta-icon"><Icon name="cupOfTea" /></span>
 			<h3>Drop me a line</h3>
 			<h4>
-				at <a class="email-link" href="mailto:lucaleiva248@gmail.com">lucaleiva248@gmail.com</a>
+				or hit me up at <a class="email-link" href="mailto:lucaleiva248@gmail.com"
+					>lucaleiva248@gmail.com</a
+				>
 			</h4>
+			<MailForm bind:formRef {form} />
 		</div>
 	</section>
 	<section

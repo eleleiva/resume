@@ -1,11 +1,13 @@
 <script lang="ts">
 	import Link from './Link.svelte';
 
-	export let title: string;
-	export let description: string;
-	export let image: string;
-	export let link: string;
-	export let index = 0;
+	let {
+		title,
+		description,
+		image,
+		link,
+		index
+	}: { title: string; description: string; image: string; link: string; index: number } = $props();
 </script>
 
 <section class="project-container" data-reveal style:--reveal-delay={`${120 + index * 70}ms`}>

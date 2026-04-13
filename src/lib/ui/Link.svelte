@@ -1,11 +1,12 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
 	import Icon from './Icon.svelte';
 
-	export let href: string;
+	let { href, children }: { href: string; children: Snippet } = $props();
 </script>
 
 <a {href} target="_blank" rel="noopener noreferrer">
-	<slot />
+	{@render children()}
 	<Icon class="icon" name="arrow" />
 </a>
 
@@ -42,13 +43,13 @@
 		display: inline-flex;
 		align-items: center;
 		gap: 0.25rem;
-		color: hsla(240, 100%, 47%, 1);
+		color: hsla(110, 92%, 56%, 1);
 		outline: none;
 	}
 
 	a:hover :global(.icon),
 	a:focus-visible :global(.icon) {
-		color: hsla(240, 100%, 47%, 1);
+		color: hsla(110, 92%, 56%, 1);
 		transform: translateX(4px) rotate(-90deg);
 	}
 
