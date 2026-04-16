@@ -5,11 +5,13 @@ import { z } from 'zod';
 import { RESEND_API_KEY, CONTACT_EMAIL_RECIPIENT, CONTACT_EMAIL_SENDER } from '$env/static/private';
 
 const resend = new Resend(RESEND_API_KEY);
+const HONEYPOT_FIELD = 'company';
 
 const contactSchema = z.object({
-	subject: z.string().min(2),
-	from: z.email(),
-	message: z.string().min(10)
+	from: z.string().trim().email().max(320),
+	subject: z.string().trim().min(2).max(120),
+	message: z.string().trim().min(10).max(5000),
+	[HONEYPOT_FIELD]: z.string().trim().max(0).optional().default('')
 });
 
 const contactFormSender =
@@ -17,13 +19,18 @@ const contactFormSender =
 
 export const actions = {
 	default: async ({ request }) => {
-		const formData = Object.fromEntries(await request.formData());
+		const requestFormData = await request.formData();
+		const honeypotValue = requestFormData.get(HONEYPOT_FIELD);
+
+		if (typeof honeypotValue === 'string' && honeypotValue.trim().length > 0) {
+			return { success: true };
+		}
+
+		const formData = Object.fromEntries(requestFormData);
 
 		const result = contactSchema.safeParse(formData);
 
 		if (!result.success) {
-			console.log('z.treeifyError(result.error): ', z.treeifyError(result.error));
-
 			return fail(400, { errors: z.treeifyError(result.error) });
 		}
 

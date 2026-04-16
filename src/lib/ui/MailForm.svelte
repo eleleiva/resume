@@ -15,6 +15,10 @@
 </script>
 
 <form bind:this={formRef} method="post" use:enhance>
+	<div class="company" aria-hidden="true">
+		<label for="company">Company</label>
+		<input id="company" name="company" type="text" tabindex="-1" autocomplete="off" value="" />
+	</div>
 	<Input
 		name="from"
 		type="email"
@@ -47,6 +51,14 @@
 </form>
 
 <style>
+	.company {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+
 	.submit-container {
 		display: flex;
 		gap: 1.5rem;
