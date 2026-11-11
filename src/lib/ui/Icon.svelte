@@ -7,51 +7,25 @@
 	import HappyFace from '#lib/icons/HappyFace.svelte';
 	import MapMarker from '#lib/icons/MapMarker.svelte';
 
-	let class_name = '';
-
-	export { class_name as class };
-	export let name: keyof typeof Icons;
-
-	const Icons = {
-		cat: {
-			Icon: Cat,
-			name: 'cat'
-		},
-		cupOfTea: {
-			Icon: CupOfTea,
-			name: 'cup of tea'
-		},
-		mapMarker: {
-			Icon: MapMarker,
-			name: 'map marker'
-		},
-		happyFace: {
-			Icon: HappyFace,
-			name: 'happy face'
-		},
-		arrow: {
-			Icon: Arrow,
-			name: 'arrow'
-		},
-		arrowUp: {
-			Icon: ArrowUp,
-			name: 'arrowUp'
-		},
-		box: {
-			Icon: Box,
-			name: 'box'
-		}
+	const ICONS = {
+		cat: { Component: Cat, label: 'cat' },
+		cupOfTea: { Component: CupOfTea, label: 'cup of tea' },
+		mapMarker: { Component: MapMarker, label: 'map marker' },
+		happyFace: { Component: HappyFace, label: 'happy face' },
+		arrow: { Component: Arrow, label: 'arrow' },
+		arrowUp: { Component: ArrowUp, label: 'arrowUp' },
+		box: { Component: Box, label: 'box' }
 	};
 
-	const icon = Icons[name];
-	const Icon = icon.Icon;
+	let { name, class: className = '' }: { name: keyof typeof ICONS; class?: string } = $props();
+
+	const IconComponent = $derived(ICONS[name].Component);
+	const label = $derived(ICONS[name].label);
 </script>
 
-<i class={class_name}>
-	<Icon />
-	<span>
-		{icon.name}
-	</span>
+<i class={className}>
+	<IconComponent />
+	<span>{label}</span>
 </i>
 
 <style>

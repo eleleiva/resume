@@ -1,13 +1,9 @@
 <script lang="ts">
 	export let type: 'submit' | 'reset' | 'button' = 'button';
 	export let onClick: () => void = () => {};
-
-	const handleClick = () => {
-		onClick();
-	};
 </script>
 
-<button {type} on:click={handleClick}><slot /></button>
+<button {type} on:click={onClick}><slot /></button>
 
 <style>
 	button {
