@@ -27,7 +27,7 @@
 		gap: 0.625rem;
 		align-self: stretch;
 		border: 1px solid currentColor;
-		font-family: NeueBit, sans-serif;
+		font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 	}
 
 	textarea:focus-visible {
@@ -37,7 +37,7 @@
 
 	textarea::placeholder {
 		color: #b0b0b0;
-		font-family: NeueBit, sans-serif;
+		font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 		font-size: 1rem;
 		font-style: normal;
 		font-weight: 700;
