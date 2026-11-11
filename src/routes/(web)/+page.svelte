@@ -255,8 +255,26 @@
 		<span class="readout-led"></span>
 		{animationsDisabled ? 'Enable animations' : 'Disable animations'}
 	</button>
-	<span class="readout-pill" aria-hidden="true">Input: web</span>
-	<span class="readout-pill" aria-hidden="true">Montevideo UTC-3</span>
+	<form class="readout-form" method="get" action="/raw" data-sveltekit-reload>
+		<button
+			type="submit"
+			class="readout-toggle-button readout-toggle-enabled"
+			title="Switch to the raw HTML version"
+		>
+			<span class="readout-led"></span>
+			Input: web
+			<span class="visually-hidden"> — switch to the raw HTML version</span>
+		</button>
+	</form>
+	<a
+		class="readout-pill readout-pill-link"
+		href="https://www.openstreetmap.org/#map=12/-34.9011/-56.1645"
+		target="_blank"
+		rel="external noopener noreferrer"
+	>
+		Montevideo UTC-3
+		<span class="visually-hidden"> — open map in a new tab</span>
+	</a>
 </div>
 
 <style>
@@ -326,6 +344,45 @@
 			color 180ms steps(3, end),
 			background-color 180ms steps(3, end),
 			box-shadow 180ms steps(3, end);
+	}
+
+	.readout-form {
+		display: contents;
+	}
+
+	.readout-pill-link {
+		pointer-events: auto;
+		text-decoration: none;
+		cursor: pointer;
+		transition:
+			border-color 180ms steps(3, end),
+			color 180ms steps(3, end),
+			background-color 180ms steps(3, end),
+			box-shadow 180ms steps(3, end);
+	}
+
+	.readout-pill-link:hover {
+		color: #aaff9b;
+		border-color: rgba(104, 254, 101, 0.34);
+		background: rgba(20, 20, 20, 0.68);
+		box-shadow: 0 0 0 1px rgba(104, 254, 101, 0.14);
+	}
+
+	.readout-pill-link:focus-visible {
+		outline: 1px solid rgba(170, 255, 155, 0.8);
+		outline-offset: 2px;
+		color: #aaff9b;
+		border-color: rgba(104, 254, 101, 0.34);
+		background: rgba(20, 20, 20, 0.68);
+	}
+
+	.visually-hidden {
+		clip: rect(1px, 1px, 1px, 1px);
+		height: 1px;
+		overflow: hidden;
+		position: absolute;
+		white-space: nowrap;
+		width: 1px;
 	}
 
 	.readout-toggle-enabled {
@@ -406,6 +463,7 @@
 	@media (prefers-reduced-motion: reduce) {
 		.crt-readout,
 		.readout-toggle-button,
+		.readout-pill-link,
 		.readout-led {
 			animation: none;
 			transition: none;
@@ -419,6 +477,7 @@
 
 	:global(html[data-animations='off']) .crt-readout,
 	:global(html[data-animations='off']) .readout-toggle-button,
+	:global(html[data-animations='off']) .readout-pill-link,
 	:global(html[data-animations='off']) .readout-led {
 		animation: none;
 		transition: none;
