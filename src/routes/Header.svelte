@@ -28,19 +28,28 @@
 		flex-direction: column;
 		gap: 2rem;
 		align-items: center;
+		width: 100%;
 		max-width: 100%;
+	}
+
+	.jumbotron h1,
+	.jumbotron h2 {
+		width: 100%;
 	}
 
 	.jumbotron p {
 		text-align: center;
-		font-family: NeueBit, sans-serif;
+		font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 		font-size: 1.25rem;
 		font-style: normal;
 		font-weight: 700;
-		line-height: normal;
+		line-height: 0.714;
 		letter-spacing: 0.09375rem;
 		margin: 0;
 		display: inline-flex;
+		justify-content: center;
+		width: 100%;
+		max-width: 100%;
 		align-items: center;
 		text-transform: uppercase;
 		gap: 0.5rem;
@@ -81,12 +90,15 @@
 	.hero-cursor {
 		display: inline-block;
 		width: 2px;
-		height: 0.74em;
+		/* Kept below the strut ascent so font metrics cannot change the line box;
+		   scaleY restores the visible 0.74em height without affecting layout. */
+		height: 0.5em;
 		margin-left: 0.18em;
 		background: currentColor;
 		opacity: 0.92;
 		vertical-align: baseline;
-		transform: translateY(0.08em);
+		transform: translateY(0.08em) scaleY(1.48);
+		transform-origin: bottom;
 		animation: cursor-blink 1.25s steps(1, end) infinite;
 	}
 
@@ -166,7 +178,7 @@
 		}
 
 		.hero-cursor {
-			transform: translateY(0.08em);
+			transform: translateY(0.08em) scaleY(1.48);
 		}
 	}
 
@@ -188,6 +200,6 @@
 	}
 
 	:global(html[data-animations='off']) .hero-cursor {
-		transform: translateY(0.08em);
+		transform: translateY(0.08em) scaleY(1.48);
 	}
 </style>

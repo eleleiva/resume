@@ -109,13 +109,13 @@
 
 	.closing-tag-container p {
 		text-transform: uppercase;
-		font-family: NeueBit, sans-serif;
+		font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 
 		text-align: center;
 		font-size: 1.25rem;
 		font-style: normal;
 		font-weight: 700;
-		line-height: normal;
+		line-height: 0.714;
 		letter-spacing: 0.1rem;
 	}
 

@@ -309,8 +309,9 @@
 		border: 1px solid rgba(255, 255, 255, 0.22);
 		background: rgba(10, 10, 10, 0.55);
 		color: rgba(255, 255, 255, 0.86);
-		font-family: NeueBit, sans-serif;
+		font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 		font-size: 1rem;
+		line-height: 0.714;
 		letter-spacing: 0.08rem;
 		text-transform: uppercase;
 		text-shadow: 0 0 6px rgba(255, 255, 255, 0.14);
@@ -327,8 +328,9 @@
 		border: 1px solid rgba(255, 255, 255, 0.22);
 		background: rgba(10, 10, 10, 0.55);
 		color: rgba(255, 255, 255, 0.86);
-		font-family: NeueBit, sans-serif;
+		font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 		font-size: 1rem;
+		line-height: 0.714;
 		letter-spacing: 0.08rem;
 		text-transform: uppercase;
 		text-shadow: 0 0 6px rgba(255, 255, 255, 0.14);

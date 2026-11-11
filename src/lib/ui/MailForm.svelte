@@ -68,7 +68,7 @@
 
 	.submit-container p {
 		color: #4af626;
-		font-family: NeueBit, sans-serif;
+		font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 		font-size: 1.25rem;
 		font-style: normal;
 		font-weight: 700;

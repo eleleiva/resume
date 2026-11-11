@@ -14,6 +14,40 @@
 	font-display: swap;
 }
 
+/*
+ * Metric-matched fallbacks keep text from reflowing while the local fonts load.
+ * Their size-adjust values are derived from the average glyph width of the real
+ * fonts so wrapping stays close to the final layout.
+ */
+@font-face {
+	font-family: 'NeueBit Fallback';
+	font-weight: 400;
+	src:
+		local('Arial'), local('Helvetica Neue'), local('Helvetica'), local('Liberation Sans'),
+		local('Roboto'), local('Segoe UI'), local('Noto Sans');
+	size-adjust: 62.9%;
+}
+
+@font-face {
+	font-family: 'NeueBit Fallback';
+	font-weight: 700;
+	src:
+		local('Arial Bold'), local('Arial-BoldMT'), local('Helvetica Bold'), local('Helvetica-Bold'),
+		local('Liberation Sans Bold'), local('LiberationSans-Bold'), local('Roboto Bold'),
+		local('Roboto-Bold'), local('Segoe UI Bold'), local('SegoeUI-Bold'), local('Noto Sans Bold'),
+		local('NotoSans-Bold');
+	size-adjust: 62.3%;
+}
+
+@font-face {
+	font-family: 'Mondwest Fallback';
+	font-weight: 400;
+	src:
+		local('Arial'), local('Helvetica Neue'), local('Helvetica'), local('Liberation Sans'),
+		local('Roboto'), local('Segoe UI'), local('Noto Sans');
+	size-adjust: 85.2%;
+}
+
 html {
 	background-color: #161616;
 }
@@ -215,11 +249,11 @@ img {
 
 h1 {
 	text-align: center;
-	font-family: NeueBit, sans-serif;
+	font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 	font-size: 6.75rem;
 	font-style: normal;
 	font-weight: 700;
-	line-height: normal;
+	line-height: 0.714; /* Matches NeueBit's metrics so the fallback cannot resize the hero */
 	letter-spacing: 0.50625rem;
 	margin: 0;
 	text-transform: uppercase;
@@ -233,11 +267,11 @@ h1 {
 h2 {
 	color: #4af626;
 	text-align: center;
-	font-family: Mondwest, sans-serif;
+	font-family: Mondwest, 'Mondwest Fallback', sans-serif;
 	font-size: 2rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: normal;
+	line-height: 1.08;
 	margin: 0;
 }
 
@@ -329,15 +363,15 @@ img {
 
 a {
 	color: currentColor;
-	font-family: NeueBit, sans-serif;
+	font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 }
 
 h3 {
-	font-family: Mondwest, sans-serif;
+	font-family: Mondwest, 'Mondwest Fallback', sans-serif;
 	font-size: 4rem;
 	font-style: normal;
 	font-weight: 400;
-	line-height: normal;
+	line-height: 1.08;
 	text-align: center;
 	margin: 0;
 	text-shadow:
@@ -347,11 +381,11 @@ h3 {
 }
 
 h4 {
-	font-family: NeueBit, sans-serif;
+	font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 	font-size: 1.5rem;
 	font-style: normal;
 	font-weight: 700;
-	line-height: normal;
+	line-height: 0.714;
 	letter-spacing: 0.12rem;
 	margin: 0;
 }
@@ -409,6 +443,8 @@ form {
 
 	h2 {
 		font-size: 1.125rem;
+		/* Reserve two lines so a fallback/font wrap difference cannot move the page. */
+		min-height: 2.16em;
 	}
 
 	h3 {

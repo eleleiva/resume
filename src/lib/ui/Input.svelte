@@ -26,7 +26,7 @@
 
 		color: currentColor;
 
-		font-family: NeueBit, sans-serif;
+		font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 		font-size: 1rem;
 		font-style: normal;
 		font-weight: 700;
@@ -36,7 +36,7 @@
 
 	input::placeholder {
 		color: #b0b0b0;
-		font-family: NeueBit, sans-serif;
+		font-family: NeueBit, 'NeueBit Fallback', sans-serif;
 		font-size: 1rem;
 		font-style: normal;
 		font-weight: 700;
