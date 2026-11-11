@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import type { ActionData } from '../../routes/$types';
+	import type { ActionData } from '../../routes/(web)/$types';
 	import Button from './Button.svelte';
 	import Input from './Input.svelte';
 	import Textarea from './Textarea.svelte';
