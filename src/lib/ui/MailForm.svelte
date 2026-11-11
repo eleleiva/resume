@@ -46,6 +46,8 @@
 		<Button type="submit">Send</Button>
 		{#if form?.success}
 			<p>THANK YOU FOR YOUR MESSAGE, I WILL TRY TO GET BACK TO YOU AS SOON AS POSSIBLE :)</p>
+		{:else if form?.message}
+			<p class="error" role="alert">{form.message}</p>
 		{/if}
 	</div>
 </form>
@@ -72,5 +74,9 @@
 		font-weight: 700;
 		line-height: 1.5rem; /* 120% */
 		letter-spacing: 0.1rem;
+	}
+
+	.submit-container p.error {
+		color: #ff8b87;
 	}
 </style>

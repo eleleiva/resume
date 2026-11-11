@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Icon from '$lib/ui/Icon.svelte';
-	import Link from '$lib/ui/Link.svelte';
-	import Project from '$lib/ui/Project.svelte';
-	import { projects } from '$lib/utilities/constants';
+	import Icon from '#lib/ui/Icon.svelte';
+	import Link from '#lib/ui/Link.svelte';
+	import Project from '#lib/ui/Project.svelte';
+	import { projects } from '#lib/utilities/constants.ts';
 
 	let main: HTMLElement;
 	let aboutMeHeader: HTMLElement;

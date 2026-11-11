@@ -14,7 +14,7 @@
 		triggerCRTPulseSound,
 		type CRTPulseVariant,
 		type CRTSoundProfile
-	} from '$lib/utilities/sound';
+	} from '#lib/utilities/sound.ts';
 
 	const ANIMATIONS_STORAGE_KEY = 'resume:animations-disabled';
 

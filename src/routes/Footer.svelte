@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import Button from '$lib/ui/Button.svelte';
-	import Icon from '$lib/ui/Icon.svelte';
-	import MailForm from '$lib/ui/MailForm.svelte';
+	import Button from '#lib/ui/Button.svelte';
+	import Icon from '#lib/ui/Icon.svelte';
+	import MailForm from '#lib/ui/MailForm.svelte';
 	import type { ActionData } from './$types';
 
 	let {
