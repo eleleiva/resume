@@ -3,6 +3,7 @@
 	import Button from '#lib/ui/Button.svelte';
 	import Icon from '#lib/ui/Icon.svelte';
 	import MailForm from '#lib/ui/MailForm.svelte';
+	import { observeReveals } from '#lib/utilities/reveal.ts';
 	import type { ActionData } from './$types';
 
 	let {
@@ -15,45 +16,27 @@
 		handleBackToTop: () => void;
 	} = $props();
 	let closingTag = $state<HTMLElement>();
-	let ctaVisible = $state(false);
-	let closingTagVisible = $state(false);
 
 	onMount(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (!entry.isIntersecting) return;
-
-					if (entry.target === formRef) {
-						ctaVisible = true;
-					}
-
-					if (entry.target === closingTag) {
-						closingTagVisible = true;
-					}
-
-					entry.target.setAttribute('data-visible', 'true');
-					observer.unobserve(entry.target);
-				});
-			},
-			{
-				threshold: 0.22,
-				rootMargin: '0px 0px -6% 0px'
-			}
+		const targets = [formRef, closingTag].filter(
+			(target): target is HTMLElement => target !== undefined
 		);
 
-		if (formRef) observer.observe(formRef);
-		if (closingTag) observer.observe(closingTag);
+		return observeReveals(targets, {
+			threshold: 0.22,
+			rootMargin: '0px 0px -6% 0px',
+			onReveal: (target) => {
+				if (target !== formRef) return;
 
-		return () => {
-			observer.disconnect();
-		};
+				target.closest('.call-to-action-container')?.setAttribute('data-visible', 'true');
+			}
+		});
 	});
 </script>
 
 <footer>
 	<section class="form-container">
-		<div class:is-visible={ctaVisible} class="call-to-action-container">
+		<div class="call-to-action-container">
 			<span class="cta-icon"><Icon name="cupOfTea" /></span>
 			<h3>Drop me a line</h3>
 			<h4>
@@ -64,11 +47,7 @@
 			<MailForm bind:formRef {form} />
 		</div>
 	</section>
-	<section
-		bind:this={closingTag}
-		class:is-visible={closingTagVisible}
-		class="closing-tag-container"
-	>
+	<section bind:this={closingTag} class="closing-tag-container">
 		<img
 			class="closing-tag-computer"
 			height="80"
@@ -99,11 +78,11 @@
 		gap: 1.5rem;
 	}
 
-	.call-to-action-container.is-visible .cta-icon {
+	:global(.call-to-action-container[data-visible='true']) .cta-icon {
 		animation: tea-rise 340ms steps(2, end) 100ms 1 both;
 	}
 
-	.closing-tag-container.is-visible .closing-tag-computer {
+	:global(.closing-tag-container[data-visible='true']) .closing-tag-computer {
 		animation: computer-wake 440ms steps(2, end) 120ms 1 both;
 	}
 
@@ -177,16 +156,20 @@
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.closing-tag-container.is-visible .closing-tag-computer,
-		.call-to-action-container.is-visible .cta-icon,
+		:global(.closing-tag-container[data-visible='true']) .closing-tag-computer,
+		:global(.call-to-action-container[data-visible='true']) .cta-icon,
 		.closing-tag-container :global(.back-to-top-icon) {
 			animation: none;
 			transition: none;
 		}
 	}
 
-	:global(html[data-animations='off']) .closing-tag-container.is-visible .closing-tag-computer,
-	:global(html[data-animations='off']) .call-to-action-container.is-visible .cta-icon,
+	:global(html[data-animations='off'])
+		:global(.closing-tag-container[data-visible='true'])
+		.closing-tag-computer,
+	:global(html[data-animations='off'])
+		:global(.call-to-action-container[data-visible='true'])
+		.cta-icon,
 	:global(html[data-animations='off']) .closing-tag-container :global(.back-to-top-icon) {
 		animation: none;
 		transition: none;

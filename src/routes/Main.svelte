@@ -4,57 +4,26 @@
 	import Link from '#lib/ui/Link.svelte';
 	import Project from '#lib/ui/Project.svelte';
 	import { projects } from '#lib/utilities/constants.ts';
+	import { observeReveals } from '#lib/utilities/reveal.ts';
 
 	let main: HTMLElement;
-	let aboutMeHeader: HTMLElement;
-	let projectsHeader: HTMLElement;
-	let aboutMeHeaderVisible = false;
-	let projectsHeaderVisible = false;
 
 	onMount(() => {
-		const observer = new IntersectionObserver(
-			(entries) => {
-				entries.forEach((entry) => {
-					if (!entry.isIntersecting) return;
-
-					if (entry.target === aboutMeHeader) {
-						aboutMeHeaderVisible = true;
-					}
-
-					if (entry.target === projectsHeader) {
-						projectsHeaderVisible = true;
-					}
-
-					entry.target.setAttribute('data-visible', 'true');
-					observer.unobserve(entry.target);
-				});
-			},
-			{
-				threshold: 0.18,
-				rootMargin: '0px 0px -8% 0px'
-			}
-		);
-
 		const revealableElements = main.querySelectorAll<HTMLElement>('[data-reveal]');
 
 		revealableElements.forEach((element) => {
 			element.setAttribute('data-reveal-init', 'true');
-			observer.observe(element);
 		});
 
-		return () => {
-			observer.disconnect();
-		};
+		return observeReveals(revealableElements, {
+			threshold: 0.18,
+			rootMargin: '0px 0px -8% 0px'
+		});
 	});
 </script>
 
 <main bind:this={main}>
-	<section
-		bind:this={aboutMeHeader}
-		class:is-visible={aboutMeHeaderVisible}
-		class="about-me-header"
-		data-reveal
-	>
+	<section class="about-me-header" data-reveal>
 		<span class="about-me-header-icon"><Icon name="mapMarker" /></span>
 		<h3>Born and based in Montevideo, Uruguay</h3>
 		<p>But open for gigs all around the globe</p>
@@ -94,25 +63,14 @@
 	</article>
 
 	<article class="projects-section-container">
-		<div
-			bind:this={projectsHeader}
-			class:is-visible={projectsHeaderVisible}
-			class="projects-header-container"
-			data-reveal
-		>
+		<div class="projects-header-container" data-reveal>
 			<span class="projects-header-icon"><Icon name="box" /></span>
 			<h3>My experiments</h3>
 			<h4>Ideas I've built and explored</h4>
 		</div>
 		<div class="projects-container">
 			{#each projects as project, index (project.title)}
-				<Project
-					title={project.title}
-					description={project.description}
-					image={project.image}
-					link={project.link}
-					{index}
-				/>
+				<Project {...project} {index} />
 			{/each}
 		</div>
 	</article>
@@ -155,7 +113,7 @@
 		align-items: center;
 	}
 
-	.projects-header-container.is-visible .projects-header-icon {
+	:global(.projects-header-container[data-visible='true']) .projects-header-icon {
 		animation: box-pop 320ms steps(2, end) 120ms 1 both;
 	}
 
@@ -171,7 +129,7 @@
 		gap: 1.5rem;
 	}
 
-	.about-me-header.is-visible .about-me-header-icon {
+	:global(.about-me-header[data-visible='true']) .about-me-header-icon {
 		animation: marker-pulse 360ms steps(2, end) 120ms 1 both;
 	}
 
@@ -284,8 +242,8 @@
 			transition: none;
 		}
 
-		.about-me-header.is-visible .about-me-header-icon,
-		.projects-header-container.is-visible .projects-header-icon {
+		:global(.about-me-header[data-visible='true']) .about-me-header-icon,
+		:global(.projects-header-container[data-visible='true']) .projects-header-icon {
 			animation: none;
 		}
 	}
@@ -296,8 +254,12 @@
 		transition: none;
 	}
 
-	:global(html[data-animations='off']) .about-me-header.is-visible .about-me-header-icon,
-	:global(html[data-animations='off']) .projects-header-container.is-visible .projects-header-icon {
+	:global(html[data-animations='off'])
+		:global(.about-me-header[data-visible='true'])
+		.about-me-header-icon,
+	:global(html[data-animations='off'])
+		:global(.projects-header-container[data-visible='true'])
+		.projects-header-icon {
 		animation: none;
 	}
 </style>

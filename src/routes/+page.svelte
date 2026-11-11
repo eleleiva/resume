@@ -80,8 +80,6 @@
 		return CRT_SOUND_PROFILE_ORDER[nextIndex];
 	};
 
-	let isDoublePulse = $derived(crtPulseVariant === 'double');
-	let isWobblePulse = $derived(crtPulseVariant === 'wobble');
 	let soundProfileLabel = $derived(CRT_SOUND_PROFILE_LABELS[soundProfile]);
 
 	const getRandomPulseVariant = (): CRTPulseVariant => {
@@ -214,8 +212,8 @@
 		class="crt-effects"
 		class:crt-ready={crtReady}
 		class:crt-pulse-active={crtPulseActive}
-		class:crt-pulse-double={isDoublePulse}
-		class:crt-pulse-wobble={isWobblePulse}
+		class:crt-pulse-double={crtPulseVariant === 'double'}
+		class:crt-pulse-wobble={crtPulseVariant === 'wobble'}
 		aria-hidden="true"
 	>
 		<div class="crt-sweep"></div>
@@ -301,7 +299,8 @@
 		transform: translateY(0);
 	}
 
-	.readout-pill {
+	.readout-pill,
+	.readout-toggle-button {
 		display: inline-flex;
 		align-items: center;
 		gap: 0.35rem;
@@ -320,21 +319,7 @@
 
 	.readout-toggle-button {
 		pointer-events: auto;
-		display: inline-flex;
-		align-items: center;
 		justify-content: center;
-		gap: 0.35rem;
-		padding: 0.25rem 0.5rem;
-		border: 1px solid rgba(255, 255, 255, 0.22);
-		background: rgba(10, 10, 10, 0.55);
-		color: rgba(255, 255, 255, 0.86);
-		font-family: NeueBit, 'NeueBit Fallback', sans-serif;
-		font-size: 1rem;
-		line-height: 0.714;
-		letter-spacing: 0.08rem;
-		text-transform: uppercase;
-		text-shadow: 0 0 6px rgba(255, 255, 255, 0.14);
-		backdrop-filter: blur(2px);
 		cursor: pointer;
 		transition:
 			border-color 180ms steps(3, end),

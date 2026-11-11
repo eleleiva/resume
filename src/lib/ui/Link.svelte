@@ -40,9 +40,6 @@
 
 	a:hover,
 	a:focus-visible {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.25rem;
 		color: hsla(110, 92%, 56%, 1);
 		outline: none;
 	}

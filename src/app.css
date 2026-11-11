@@ -77,10 +77,6 @@ body {
 	transition: opacity 120ms steps(2, end);
 }
 
-.crt-effects.crt-ready {
-	opacity: 1;
-}
-
 .crt-effects.crt-pulse-active {
 	animation: crt-sync-blink 220ms steps(4, end) 1 both;
 }
@@ -282,6 +278,7 @@ nav {
 	width: 100%;
 	align-items: center;
 	max-width: 1280px;
+	gap: 1rem;
 }
 
 nav a {
@@ -410,11 +407,8 @@ main {
 }
 
 footer {
-	display: flex;
-	flex-direction: column;
 	gap: 16rem;
-	padding: 16rem 0 16rem 0;
-	align-items: center;
+	padding: 16rem 0;
 	margin: 0 auto;
 }
 
