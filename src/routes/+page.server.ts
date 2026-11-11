@@ -2,7 +2,7 @@ import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
 import { Resend } from 'resend';
 import { z } from 'zod';
-import { RESEND_API_KEY, CONTACT_EMAIL_RECIPIENT, CONTACT_EMAIL_SENDER } from '$env/static/private';
+import { RESEND_API_KEY, CONTACT_EMAIL_RECIPIENT, CONTACT_EMAIL_SENDER } from '$app/env/private';
 
 const resend = new Resend(RESEND_API_KEY);
 const HONEYPOT_FIELD = 'company';
@@ -37,15 +37,21 @@ export const actions = {
 		const { subject, from, message } = result.data;
 
 		try {
-			await resend.emails.send({
+			const { error } = await resend.emails.send({
 				from: `Contact Form ${contactFormSender}`,
 				to: CONTACT_EMAIL_RECIPIENT,
 				subject: subject,
 				text: `From: ${from}\n\n${message}`
 			});
 
+			if (error) {
+				console.error('Could not send contact form email', error);
+				return fail(500, { message: 'Could not send email' });
+			}
+
 			return { success: true };
-		} catch {
+		} catch (error) {
+			console.error('Could not send contact form email', error);
 			return fail(500, { message: 'Could not send email' });
 		}
 	}

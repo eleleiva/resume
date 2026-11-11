@@ -5,7 +5,7 @@
 	let { href, children }: { href: string; children: Snippet } = $props();
 </script>
 
-<a {href} target="_blank" rel="noopener noreferrer">
+<a {href} target="_blank" rel="external noopener noreferrer">
 	{@render children()}
 	<Icon class="icon" name="arrow" />
 </a>
